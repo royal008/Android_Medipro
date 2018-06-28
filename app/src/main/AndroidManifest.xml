@@ -20,9 +20,9 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ui.activity.main.MainActivity" />
-        <activity android:name=".ui.activity.MobileSignUpActivity" />
-        <activity android:name=".ui.activity.MenuActivity" />
+        <activity android:name=".ui.activity.login.MainActivity" />
+        <activity android:name=".ui.activity.login.MobileSignUpActivity" />
+        <activity android:name=".ui.activity.main.MenuActivity" />
         <activity android:name=".ui.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

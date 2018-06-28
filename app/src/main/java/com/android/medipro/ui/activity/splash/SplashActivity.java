@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.android.medipro.R;
-import com.android.medipro.ui.activity.main.MainActivity;
+import com.android.medipro.ui.activity.login.MainActivity;
 
 /**
  * Created by Deepa on 04-12-2017.
@@ -16,6 +16,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+
         new Handler().postDelayed(new Runnable() {
 
             /*

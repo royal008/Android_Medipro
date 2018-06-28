@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.medipro.R;
-import com.android.medipro.ui.fragments.DoctorInfoFragment;
+import com.android.medipro.ui.fragments.doctorInfo.DoctorInfoFragment;
 
 
 /**

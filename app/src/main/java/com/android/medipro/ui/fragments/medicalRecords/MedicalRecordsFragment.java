@@ -1,48 +1,62 @@
-package com.android.medipro.ui.fragments.addreminder;
+package com.android.medipro.ui.fragments.medicalRecords;
 
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.android.medipro.R;
-import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
 
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddReminderFragment extends Fragment {
-
+public class MedicalRecordsFragment extends Fragment {
     View view;
+    ListView lvMedicalRecords;
+    ArrayList alDate,alMonth;
+    MedicalRecordsAdapter medicalRecordsAdapter;
     ImageView ivBack;
-    FragmentBeanClass fbc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_add_re_minder, container, false);
+        view= inflater.inflate(R.layout.fragment_medical_records, container, false);
+
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
-        fbc=new FragmentBeanClass((AppCompatActivity) getActivity(), R.id.fl_container_main);
+        alDate=new ArrayList();
+        alMonth=new ArrayList();
+
+        alDate.add("15");
+        alDate.add("24");
+        alDate.add("08");
+
+        alMonth.add("NOV");
+        alMonth.add("AUG");
+        alMonth.add("AUG");
+
+        medicalRecordsAdapter=new MedicalRecordsAdapter(getActivity(),alDate,alMonth);
+        lvMedicalRecords=(ListView)view.findViewById(R.id.lv_medical_records);
+        lvMedicalRecords.setAdapter(medicalRecordsAdapter);
+
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
 
         onClick();
+
         return view;
     }
-
     private void onClick() {
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fbc.goBack();
-//                getFragmentManager().popBackStack();
-
+                getFragmentManager().popBackStack();
             }
         });
     }

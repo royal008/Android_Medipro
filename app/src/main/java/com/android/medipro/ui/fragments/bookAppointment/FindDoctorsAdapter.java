@@ -1,7 +1,6 @@
-package com.android.medipro.custom_utils;
+package com.android.medipro.ui.fragments.bookAppointment;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,26 +9,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.medipro.R;
-import com.android.medipro.ui.fragments.doctorDetails.DoctorDetailsFragment;
 
 
 /**
  * Created by Deepa on 04-12-2017.
  */
 
-public class SpecialistsAdapter extends BaseAdapter {
+public class FindDoctorsAdapter extends BaseAdapter {
 
     Context context;
     int[] specialistImg;
     String[] specialistsName;
-    public SpecialistsAdapter(Context context){
+    public FindDoctorsAdapter(Context context, int[] specialistImg, String[] specialistsName){
         this.context=context;
         this.specialistImg=specialistImg;
         this.specialistsName=specialistsName;
     }
     @Override
     public int getCount() {
-        return 6;
+        return specialistImg.length;
     }
 
     @Override
@@ -53,7 +51,7 @@ public class SpecialistsAdapter extends BaseAdapter {
     }
     class ViewHolder{
         ImageView ivSpecialist;
-        TextView tvSpecialist,tvBookSpecialist;
+        TextView tvSpecialist;
     }
 
     @Override
@@ -63,18 +61,11 @@ public class SpecialistsAdapter extends BaseAdapter {
         if (view == null) {
             viewHolder = new ViewHolder();
 
-            view = LayoutInflater.from(context).inflate(R.layout.cust_specialist_list, null);
-//            viewHolder.ivSpecialist = (ImageView) view.findViewById(R.id.iv_specialist);
-//            viewHolder.ivSpecialist.setImageResource(specialistImg[position]);
-//            viewHolder.tvSpecialist = (TextView) view.findViewById(R.id.tv_specialist);
-//            viewHolder.tvSpecialist.setText(specialistsName[position]);
-            viewHolder.tvBookSpecialist=(TextView)view.findViewById(R.id.tv_book_specialist);
-            viewHolder.tvBookSpecialist.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    new FragmentBeanClass((AppCompatActivity) context,R.id.fl_container_main).setFragment(new DoctorDetailsFragment());
-                }
-            });
+            view = LayoutInflater.from(context).inflate(R.layout.cust_find_doctors_list, null);
+                viewHolder.ivSpecialist = (ImageView) view.findViewById(R.id.iv_specialist);
+                viewHolder.ivSpecialist.setImageResource(specialistImg[position]);
+                viewHolder.tvSpecialist = (TextView) view.findViewById(R.id.tv_specialist);
+                viewHolder.tvSpecialist.setText(specialistsName[position]);
 
             view.setTag(viewHolder);
 
@@ -84,4 +75,3 @@ public class SpecialistsAdapter extends BaseAdapter {
         return view;
     }
 }
-
