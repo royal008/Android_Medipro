@@ -1,4 +1,4 @@
-package com.android.medipro.ui.activity;
+package com.android.medipro.ui.activity.splash;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.android.medipro.ui.fragments;
+package com.android.medipro.ui.fragments.addreminder;
 
 
 import android.os.Bundle;

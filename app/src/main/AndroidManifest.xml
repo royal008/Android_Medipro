@@ -23,7 +23,7 @@
         <activity android:name=".ui.activity.main.MainActivity" />
         <activity android:name=".ui.activity.MobileSignUpActivity" />
         <activity android:name=".ui.activity.MenuActivity" />
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".ui.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

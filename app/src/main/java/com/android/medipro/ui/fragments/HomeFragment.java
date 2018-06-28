@@ -22,6 +22,7 @@ import com.android.medipro.custom_utils.ImageModel;
 import com.android.medipro.custom_utils.PopularProductAdapter;
 import com.android.medipro.custom_utils.SlidingImage_Adapter;
 import com.android.medipro.ui.activity.MenuActivity;
+import com.android.medipro.ui.fragments.addreminder.AddReminderFragment;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
