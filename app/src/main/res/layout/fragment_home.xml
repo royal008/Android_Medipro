@@ -558,14 +558,14 @@
                 android:textSize="@dimen/medium_text" />
         </LinearLayout>
 
-        <com.medipro.Common.ExpandableGridView
+        <com.android.medipro.custom_utils.ExpandableGridView
             android:id="@+id/gv_popular_products"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/small_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:numColumns="4"></com.medipro.Common.ExpandableGridView>
+            android:numColumns="4"/>
 
         <LinearLayout
             android:layout_width="match_parent"
