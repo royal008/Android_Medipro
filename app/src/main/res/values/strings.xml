@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">MediPro</string>
+    <string name="order_medicines">Order Medicines</string>
+    <string name="book_test">Book Test/Scan</string>
+    <string name="shopping">Shopping</string>
+    <string name="ayush">Ayush</string>
+    <string name="insurance">Insurance</string>
+    <string name="health_center">Health Center</string>
+    <string name="health_bank">Health Bank</string>
+    <string name="shopping_upload">UPLOAD</string>
+    <string name="pet_clinic">Pet Clinic</string>
+    <string name="ask_me">Ask Me Anything</string>
+    <string name="shopping_discount">Quick Buy Upto 20% Discount!</string>
+    <string name="shopping_order">Order with prescription</string>
+    <string name="homeopathy">HOMEOPATHY</string>
+    <string name="ayurvedic">AYURVEDIC</string>
+    <string name="siddha">SIDDHA</string>
+    <string name="yoga">YOGA</string>
+    <string name="gym">GYM</string>
+    <string name="spa">SPA</string>
+    <string name="blood_bank">BLOOD BANK</string>
+    <string name="stem_cell">STEM CELL</string>
+    <string name="terms">
+        <font size="10">By continuing you agree</font>
+        <font size="14">Terms &amp; Conditions</font>
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="find_doctors">
+        <font size="35">Find Doctors,</font>\n
+        <font size="10">Clinic, hospitals, specialists</font>
+    </string>
+    <string name="upload_continue">CONTINUE</string>
+    <string name="upload_preload">Preload</string>
+    <string name="upload_gallery">Gallery</string>
+    <string name="upload_camera">Camera</string>
+    <string name="medical_records">MEDICAL RECORDS</string>
+    <string name="add_record">ADD A RECORD</string>
+    <string name="submit">SUBMIT</string>
+    <string name="medical_details">Medicine Details</string>
 </resources>

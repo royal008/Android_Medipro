@@ -21,4 +21,18 @@
     <dimen name="marginSizeLarge">30dp</dimen>
     <dimen name="marginSizeExtraLarge">35dp</dimen>
 
+    <dimen name="mini_text">8sp</dimen>
+    <dimen name="very_small_text">10sp</dimen>
+    <dimen name="smaller_text">12sp</dimen>
+    <dimen name="small_text">15sp</dimen>
+    <dimen name="medium_text">18sp</dimen>
+    <dimen name="large_text">23sp</dimen>
+    <dimen name="xlarge_text">27sp</dimen>
+    <dimen name="grid_size">90sp</dimen>
+    <dimen name="drawer_width">300sp</dimen>
+    <dimen name="image_height">90sp</dimen>
+    <dimen name="margin">2sp</dimen>
+    <dimen name="margin_bottom">1sp</dimen>
+    <dimen name="padding_bottom">3sp</dimen>
+
 </resources>

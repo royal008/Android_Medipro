@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/red"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_menu_lines"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="@dimen/small_text"
+                android:src="@drawable/menu_lines" />
+
+            <TextView
+                android:id="@+id/tv_place_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/very_small_text"
+                android:gravity="center"
+                android:text="Guindy,"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=" Chennai"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text" />
+
+            <ImageView
+                android:id="@+id/iv_down_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/mini_text"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/mini_text"
+                    android:src="@drawable/small_search" />
+
+                <ImageView
+                    android:id="@+id/iv_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/mini_text"
+                    android:src="@drawable/smal_cart" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/fl_container_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/off_white">
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/signup_background"
+            android:clickable="false">
+
+            <ImageView
+                android:id="@+id/iv_profile_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/medium_text"
+                android:src="@drawable/user_signup" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="User Name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/lv_menu_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/very_small_text"
+            android:divider="@null"
+            android:scrollbars="none">
+
+        </ListView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>
+
+

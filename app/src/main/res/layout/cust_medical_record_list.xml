@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_text"
+        android:layout_marginLeft="@dimen/small_text"
+        android:layout_marginRight="@dimen/small_text"
+        android:layout_marginTop="@dimen/small_text"
+        android:background="@drawable/layout_bg"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_text">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/off_white_curved_rectangle"
+            android:orientation="vertical"
+            android:padding="@dimen/very_small_text">
+
+            <TextView
+                android:id="@+id/tv_date_mr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="15"
+                android:textColor="@color/red"
+                android:textSize="@dimen/medium_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_month_mr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="Nov"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Records added by you"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mini_text"
+                android:text="Record for user"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/small_text" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:src="@drawable/ellipsis_red" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/smaller_text"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/very_small_text"
+        android:paddingLeft="@dimen/smaller_text"
+        android:paddingRight="@dimen/smaller_text"
+        android:paddingTop="@dimen/smaller_text">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/order_medicine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/very_small_text"
+                    android:text="Center Name"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginTop="@dimen/mini_text"
+                    android:text="Location"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/small_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginTop="@dimen/mini_text"
+                    android:text="open today 07 am - 08 pm"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/small_text" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/very_small_text"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/small_text"
+                android:layout_weight="0.9"
+                android:text="1.62 km"
+                android:textColor="@color/red"
+                android:textSize="@dimen/medium_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mini_text"
+                android:layout_weight="0.5"
+                android:background="@drawable/blue_curved_rectangle"
+                android:gravity="center"
+                android:paddingBottom="@dimen/mini_text"
+                android:paddingLeft="@dimen/large_text"
+                android:paddingRight="@dimen/large_text"
+                android:paddingTop="@dimen/mini_text"
+                android:text="BOOK"
+                android:textColor="@color/white"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

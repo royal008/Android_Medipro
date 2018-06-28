@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_text"
+        android:layout_marginRight="@dimen/small_text"
+        android:gravity="right">
+
+        <ImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|end"
+            android:gravity="right|end"
+            android:paddingBottom="@dimen/mini_text"
+            android:paddingLeft="@dimen/mini_text"
+            android:paddingRight="2dp"
+            android:paddingTop="@dimen/mini_text"
+            android:src="@drawable/close_red" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_text"
+        android:layout_marginRight="@dimen/small_text"
+        android:text="Specify Medicines : "
+        android:textColor="@color/red"
+        android:textSize="@dimen/medium_text" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_text"
+        android:layout_marginRight="@dimen/small_text"
+        android:layout_marginTop="@dimen/mini_text">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mini_text"
+            android:button="@null"
+            android:drawableLeft="@drawable/check_grey"
+            android:drawablePadding="@dimen/mini_text"
+            android:text="Order all medicines as per prescription."
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/small_text" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mini_text"
+            android:button="@null"
+            android:drawableLeft="@drawable/check_grey"
+            android:drawablePadding="@dimen/mini_text"
+            android:text="Not sure, Call me for details."
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/small_text" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mini_text"
+            android:button="@null"
+            android:drawableLeft="@drawable/checkred"
+            android:drawablePadding="@dimen/mini_text"
+            android:text="Let me specify the medicines."
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/small_text" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_text"
+        android:layout_marginRight="@dimen/small_text"
+        android:layout_marginTop="@dimen/small_text"
+        android:background="@drawable/black_box"
+        android:padding="@dimen/mini_text"
+        android:text="@string/medical_details"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/medium_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/small_text"
+        android:background="@color/upload_background_color"
+        android:gravity="center"
+        android:padding="@dimen/medium_text"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/medium_text"
+        android:textStyle="bold" />
+
+</LinearLayout>
