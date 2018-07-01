@@ -22,14 +22,12 @@ public class UploadedDocumentsAdapter extends BaseAdapter {
     String from;
 
 
-    //public class UploadedDocumentsAdapter extends ArrayAdapter<MyImage>{
+
 //    private static class ViewHolder {
 //        ImageView imgIcon;
 //
 //    }
-//    public UploadedDocumentsAdapter(Context context, ArrayList<MyImage> images) {
-//        super(context, 0, images);
-//    }
+//
     public UploadedDocumentsAdapter(Context c, ArrayList images) {
         context = c;
         this.images = images;
@@ -77,14 +75,7 @@ public class UploadedDocumentsAdapter extends BaseAdapter {
             viewHolder.closeBtn = (ImageView) view.findViewById(R.id.iv_close);
             viewHolder.editbtn = (ImageView) view.findViewById(R.id.iv_edit);
             viewHolder.frameLayout = (FrameLayout) view.findViewById(R.id.fl_container_main);
-//            if (from.equals("gallery")) {
-//                viewHolder.images.setImageBitmap(BitmapFactory.decodeFile(String.valueOf(picturePath.get(0))));
-//                Log.e("tag", "picturepath" + picturePath);
-//            }
-//            else {
-//                viewHolder.images.setImageBitmap(bitmap);
-//                Log.e("tag", "picturepath" + picturePath);
-//            }
+
             viewHolder.images.setImageBitmap(images.get(position));
             viewHolder.closeBtn.setImageResource(R.drawable.closewithcircle);
             viewHolder.editbtn.setImageResource(R.drawable.edit);
@@ -110,40 +101,3 @@ public class UploadedDocumentsAdapter extends BaseAdapter {
     }
 }
 
-//@Override public View getView(int position, View convertView,
-//                              ViewGroup parent) {
-//    // view lookup cache stored in tag
-//    ViewHolder viewHolder;
-//    // Check if an existing view is being reused, otherwise inflate the
-//    // item view
-//    if (convertView == null) {
-//        viewHolder = new ViewHolder();
-//        convertView = LayoutInflater.from(getContext())
-//                .inflate(R.layout.cust_grid_upload_prescription, parent, false);
-//
-//        viewHolder.imgIcon =
-//                (ImageView) convertView.findViewById(R.id.iv_img_container);
-//        convertView.setTag(viewHolder);
-//    } else {
-//        viewHolder = (ViewHolder) convertView.getTag();
-//    }
-//    // Get the data item for this position
-//    MyImage image = getItem(position);
-//    // set description text
-//   // viewHolder.description.setText(image.toString());
-//    // set image icon
-//    final int THUMBSIZE = 96;
-//    //        viewHolder.imgIcon.setImageURI(Uri.fromFile(new File(image
-//    // .getPath())));
-//    viewHolder.imgIcon.setImageBitmap(ThumbnailUtils
-//            .extractThumbnail(BitmapFactory.decodeFile(image.getPath()),
-//                    THUMBSIZE, THUMBSIZE));
-//
-//    // Return the completed view to render on screen
-//    return convertView;
-//}
-//}
-//
-
-
-//

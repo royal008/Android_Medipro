@@ -61,86 +61,7 @@
         android:layout_weight="2"
         android:orientation="vertical">
 
-        <!--<LinearLayout-->
-        <!--android:id="@+id/ll_upload_prescription"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:weightSum="1">-->
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="0.12"-->
-        <!--android:background="@color/white">-->
-
-        <!--<ImageView-->
-        <!--android:id="@+id/imageView2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginLeft="@dimen/smaller_text"-->
-        <!--android:src="@drawable/general_uploadprescription" />-->
-        <!--</LinearLayout>-->
-
-        <!--<LinearLayout-->
-        <!--android:background="@color/white"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginLeft="2sp"-->
-        <!--android:layout_weight="0.6"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="left"-->
-        <!--android:layout_marginLeft="@dimen/small_text"-->
-        <!--android:layout_marginTop="@dimen/small_text"-->
-        <!--android:text="@string/shopping_order"-->
-        <!--android:textColor="@color/red"-->
-        <!--android:textSize="@dimen/medium_text"-->
-        <!--android:textStyle="bold" />-->
-
-        <!--<TextView-->
-        <!--android:layout_marginLeft="@dimen/small_text"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="left"-->
-        <!--android:paddingBottom="@dimen/mini_text"-->
-        <!--android:text="@string/shopping_discount"-->
-        <!--android:textColor="@color/gray"-->
-        <!--android:textSize="@dimen/smaller_text"-->
-        <!--android:textStyle="bold" />-->
-        <!--</LinearLayout>-->
-
-        <!--<LinearLayout-->
-        <!--android:background="@color/white"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="0.28">-->
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginBottom="@dimen/medium_text"-->
-        <!--android:layout_marginRight="@dimen/very_small_text"-->
-        <!--android:layout_marginTop="@dimen/medium_text"-->
-        <!--android:background="@drawable/blue_curved_rectangle"-->
-        <!--android:gravity="center"-->
-        <!--android:paddingBottom="@dimen/small_text"-->
-        <!--android:paddingTop="@dimen/very_small_text"-->
-        <!--android:text="@string/shopping_upload"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:textSize="@dimen/small_text"-->
-        <!--android:textStyle="bold" />-->
-        <!--</LinearLayout>-->
-
-        <!--</LinearLayout>-->
-
-        <com.medipro.Common.ExpandableGridView
+        <com.android.medipro.custom_utils.ExpandableGridView
             android:id="@+id/gv_shopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -150,7 +71,7 @@
             android:gravity="center"
             android:numColumns="3">
 
-        </com.medipro.Common.ExpandableGridView>
+        </com.android.medipro.custom_utils.ExpandableGridView>
 
     </LinearLayout>
 </LinearLayout>

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Enter Mobile Number"
+            android:text="@string/enter_mobile_number"
             android:textColor="@color/red"
             android:textSize="@dimen/large_text"
             android:textStyle="bold" />
@@ -35,17 +35,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/xlarge_text"
-                android:text="+91"
-                android:textSize="@dimen/medium_text" />
+                android:layout_marginLeft="@dimen/large_text"
+                android:text="@string/phone_code"
+                android:textColor="@color/black"
+                android:textSize="@dimen/large_text" />
+            <ImageView
+                android:id="@+id/iv_down_arrow_black"
+                android:src="@drawable/ic_arrow_down_black"
+                android:layout_marginTop="@dimen/medium_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
             <EditText
                 android:id="@+id/et_phone_number"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
+                android:layout_marginRight="@dimen/xlarge_text"
                 android:inputType="phone"
+                android:textSize="@dimen/large_text"
                 android:maxLength="10" />
         </LinearLayout>
 
@@ -69,7 +77,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
-        android:text="CONTINUE"
+        android:textStyle="bold"
+        android:enabled="false"
+        android:textColor="@color/white"
+        android:text="@string/upload_continue"
         android:textSize="@dimen/medium_text" />
 </LinearLayout>
 

@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         MenuActivity.tvPlaceName.setText("Guindy");
         MenuActivity.tvPlaceName.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.large_text));
         MenuActivity.tvCityName.setVisibility(View.VISIBLE);
-//        MenuActivity.ivDownArrow.setVisibility(View.VISIBLE);
+        MenuActivity.ivDownArrow.setVisibility(View.VISIBLE);
         MenuActivity.ivSearch.setVisibility(View.VISIBLE);
         MenuActivity.ivCart.setVisibility(View.VISIBLE);
 
@@ -85,7 +85,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         llInsurance = (LinearLayout) view.findViewById(R.id.ll_insurance);
         llHealthCenter = (LinearLayout) view.findViewById(R.id.ll_health_center);
         llHealthBank = (LinearLayout) view.findViewById(R.id.ll_health_bank);
-
         mPager = (ViewPager) view.findViewById(R.id.pager);
         indicator = (CirclePageIndicator) view.findViewById(R.id.indicator);
 
@@ -131,20 +130,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void init() {
-
-        // mPager = (ViewPager) findViewById(R.id.pager);
-        mPager.setAdapter(new SlidingImage_Adapter(getActivity(), imageModelArrayList));
-
-        // CirclePageIndicator indicator = (CirclePageIndicator)findViewById(R.id.indicator);
-
+        mPager.setAdapter(new SlidingImage_Adapter(getActivity(),imageModelArrayList));
         indicator.setViewPager(mPager);
-
         final float density = getResources().getDisplayMetrics().density;
-
 //Set circle indicator radius
         indicator.setRadius(5 * density);
 
-        NUM_PAGES = imageModelArrayList.size();
+        NUM_PAGES =imageModelArrayList.size();
 
         // Auto start of viewpager
         final Handler handler = new Handler();
@@ -181,7 +173,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onPageScrollStateChanged(int pos) {
 
-
             }
         });
 
@@ -198,20 +189,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         llHealthCenter.setOnClickListener(this);
         llHealthBank.setOnClickListener(this);
         llUploadPrescription.setOnClickListener(this);
-//
+        llBookAppointment.setOnClickListener(this);
+        tvViewAllProduct.setOnClickListener(this);
 
-        llBookAppointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fbc.setFragment(new BookAppointmentFragment());
-            }
-        });
-        tvViewAllProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fbc.setFragment(new OrderMedicinesFragment());
-            }
-        });
 
         gvPopularProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -258,6 +238,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.ll_health_bank:
                 fbc.setFragment(new HealthBankFragment());
                 break;
+            case R.id.ll_book_appointment:
+                fbc.setFragment(new BookAppointmentFragment());
+                break;
+            case R.id.tv_view_all_product:
+                fbc.setFragment(new OrderMedicinesFragment());
+                break;
+
         }
 
     }

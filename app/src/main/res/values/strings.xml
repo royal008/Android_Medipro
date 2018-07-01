@@ -20,6 +20,13 @@
     <string name="spa">SPA</string>
     <string name="blood_bank">BLOOD BANK</string>
     <string name="stem_cell">STEM CELL</string>
+    <string name="phone_code">+91</string>Get code via call
+    <string name="hyphen">-</string>
+    <string name="code_via_call">Get code via call</string>
+    <string name="no_opt">Did not receive the code?</string>
+    <string name="resend_opt">RESEND CODE</string>
+    <string name="enter_opt">Enter the verification code(OPT)sent to your mobile</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
     <string name="terms">
         <font size="10">By continuing you agree</font>
         <font size="14">Terms &amp; Conditions</font>

@@ -68,7 +68,7 @@ public class MenuActivity extends AppCompatActivity {
         llTopBar=(LinearLayout) findViewById(R.id.ll_top_bar);
         tvPlaceName=(TextView)findViewById(R.id.tv_place_name);
         tvCityName=(TextView)findViewById(R.id.tv_city_name);
-//        ivDownArrow=(ImageView)findViewById(R.id.iv_down_arrow);
+      ivDownArrow=(ImageView)findViewById(R.id.iv_down_arrow);
         ivSearch=(ImageView)findViewById(R.id.iv_search);
         ivCart=(ImageView)findViewById(R.id.iv_cart);
 

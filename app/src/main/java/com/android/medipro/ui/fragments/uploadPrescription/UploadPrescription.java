@@ -52,14 +52,7 @@ public class UploadPrescription extends Fragment implements View.OnClickListener
     Bitmap image;
   //  int closeBtn;
   private Uri mCapturedImageURI;
-//    private ArrayList<MyImage> images;
-
-    //   private List<String> listOfImagesPath = null;
-
-    //   private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-    // public static final String GridViewDemo_ImagePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/GridViewDemo/";
-
+//
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -174,73 +167,6 @@ public class UploadPrescription extends Fragment implements View.OnClickListener
 
 
 
-
-//    private void launchCamera() {
-//        try {
-//            ContentValues values = new ContentValues();
-//            values.put(MediaStore.Images.Media.TITLE, Constants.IMAGE_PATH);
-//            mCapturedImageURI = getContext().getContentResolver()
-//                    .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-//            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//            intent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
-//            intent.putExtra(Constants.RETURN_DATA, true);
-//            startActivityForResult(intent, Constants.REQUEST_CAMERA_IMAGE);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            if (e instanceof SecurityException) {
-//                if (ContextCompat.checkSelfPermission(getActivity(),
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-//                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-//                            Constants.REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
-//                } else if (ContextCompat.checkSelfPermission(getActivity(),
-//                        Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-//                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-//                            Constants.REQUEST_READ_EXTERNAL_STORAGE_PERMISSION);
-//                } else if (ContextCompat.checkSelfPermission(getActivity(),
-//                        Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-//                    requestPermissions(new String[]{Manifest.permission.CAMERA},
-//                            Constants.REQUEST_CAMERA_PERMISSION);
-//                }
-//            }
-//        }
-//    }
-
-
-
-
-//        if (requestCode == Result_code && resultCode == RESULT_OK && data != null) {
-//            Uri selectedImage = data.getData();
-//            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-//
-//            Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-//            cursor.moveToFirst();
-//
-//            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//            String picturePath = cursor.getString(columnIndex);
-//            Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(picturePath));
-//            uploadArrary.add(bitmap);
-//
-//            Log.e("onActivityResult: ", "picturepath");
-//            cursor.close();
-//            Log.e("onActivityResult: ", "clicked");
-//
-////            for (int i = 0; i < cursor.getCount(); i++) {
-////                cursor.moveToPosition(i);
-////                int columnIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-////                uploadArrary = new ArrayList<String>();//get column index
-////                uploadArrary.add(cursor.getString(columnIndex));//get Image from column index
-//
-//
-////                uploadedDocumentsAdapter = new UploadedDocumentsAdapter(getActivity(), uploadArrary, "gallery");
-////                gvUploadedDocuments.setAdapter(uploadedDocumentsAdapter);
-//
-//        } else if (requestCode == CAMERA_REQUEST) {
-//            Bitmap photo = (Bitmap) data.getExtras().get("data");
-//            uploadArrary.add(photo);
-//        }
-//        uploadedDocumentsAdapter = new UploadedDocumentsAdapter(getActivity(),uploadArrary , "camera");
-//        gvUploadedDocuments.setAdapter(uploadedDocumentsAdapter);
-//    }
 
 
 

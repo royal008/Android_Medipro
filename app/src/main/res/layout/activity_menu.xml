@@ -47,6 +47,13 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/medium_text" />
 
+           <ImageView
+               android:src="@drawable/ic_down_arrow_white"
+               android:id="@+id/iv_down_arrow"
+               android:layout_width="wrap_content"
+               android:layout_gravity="center"
+               android:padding="@dimen/mini_text"
+               android:layout_height="wrap_content" />
 
 
             <LinearLayout
@@ -63,7 +70,6 @@
                     android:layout_gravity="center"
                     android:padding="@dimen/mini_text"
                     android:src="@drawable/small_search" />
-
                 <ImageView
                     android:id="@+id/iv_cart"
                     android:layout_width="wrap_content"

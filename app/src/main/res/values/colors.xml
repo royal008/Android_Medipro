@@ -12,4 +12,5 @@
     <color name="dark_gray">#FF545454</color>
     <color name="upload_background_color">#0E848E</color>
     <color name="pink">#FFF979A4</color>
+    <color name="button_color_main">#18909A</color>
 </resources>
