@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:fillViewport="true"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:layout_weight="1"
         android:layout_marginTop="@dimen/image_height"
@@ -15,19 +15,21 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:gravity="center"
+        android:layout_marginBottom="@dimen/mini_text"
         android:text="@string/enter_mobile_number"
         android:textColor="@color/red"
         android:textSize="@dimen/xlarge_text"
         android:textStyle="bold" />
  <LinearLayout
     android:layout_width="match_parent"
-     android:layout_weight="0.5"
-     android:layout_marginLeft="@dimen/large_text"
+     android:layout_weight="1.5"
+     android:gravity="center_vertical"
+     android:layout_marginStart="@dimen/large_text"
      android:layout_height="0dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/large_text"
+        android:layout_marginStart="@dimen/large_text"
         android:text="@string/phone_code"
         android:textColor="@color/black"
         android:textSize="@dimen/xlarge_text" />
@@ -42,21 +44,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
          android:textColor="@color/black"
-        android:layout_marginRight="@dimen/medium_text"
-        android:textSize="@dimen/xlarge_text"
+         android:textSize="@dimen/xlarge_text"
          />
      <ImageView
          android:id="@+id/iv_mode_edit"
          android:layout_width="wrap_content"
          android:layout_marginTop="@dimen/mini_text"
          android:layout_height="wrap_content"
-         android:layout_marginBottom="@dimen/mini_text"
-         android:src="@drawable/ic_mode_edit_black"/>
+         android:layout_marginStart="@dimen/mini_text"
+         android:src="@drawable/ic_mode_edit_black"
+         />
 </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/enter_opt"
         android:textSize="@dimen/small_text"
@@ -64,76 +66,78 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_gravity="center"
         android:gravity="center"
-        android:layout_weight="0.5"
+        android:layout_marginTop="@dimen/xlarge_text"
+        android:layout_weight="1.7"
         android:layout_height="0dp">
         <EditText
             android:id="@+id/et_opt_first_digit"
             android:layout_width="@dimen/xlarge_text"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/medium_text"
             android:textColor="@color/black"
             android:maxLength="1"
             android:inputType="number"
-            android:textSize="@dimen/xlarge_text" />
+            android:imeOptions="actionNext"
+            android:textSize="@dimen/large_text" />
         <EditText
             android:id="@+id/et_opt_sec_digit"
             android:layout_width="@dimen/xlarge_text"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:inputType="number"
             android:textColor="@color/black"
             android:maxLength="1"
-            android:textSize="@dimen/xlarge_text" />
+            android:imeOptions="actionNext"
+            android:textSize="@dimen/large_text" />
         <EditText
             android:id="@+id/et_opt_third_digit"
             android:layout_width="@dimen/xlarge_text"
             android:layout_height="wrap_content"
             android:maxLength="1"
+            android:imeOptions="actionNext"
             android:inputType="number"
-            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:textColor="@color/black"
-            android:textSize="@dimen/xlarge_text" />
+            android:textSize="@dimen/large_text" />
         <EditText
             android:id="@+id/et_opt_fourth_digit"
             android:layout_width="@dimen/xlarge_text"
             android:layout_height="wrap_content"
             android:maxLength="1"
             android:inputType="number"
-            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:textColor="@color/black"
-            android:textSize="@dimen/xlarge_text" />
+            android:textSize="@dimen/large_text" />
         <EditText
             android:id="@+id/et_opt_fifth_digit"
             android:layout_width="@dimen/xlarge_text"
             android:layout_height="wrap_content"
             android:maxLength="1"
             android:inputType="number"
-            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:textColor="@color/black"
-            android:textSize="@dimen/xlarge_text" />
+            android:imeOptions="actionNext"
+            android:textSize="@dimen/large_text" />
         <EditText
             android:id="@+id/et_opt_sixth_digit"
             android:layout_width="@dimen/xlarge_text"
             android:inputType="number"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:textColor="@color/black"
+            android:imeOptions="actionNext"
             android:maxLength="1"
-            android:textSize="@dimen/xlarge_text" />
+            android:textSize="@dimen/large_text" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_weight="3"
         android:layout_marginTop="@dimen/medium_text"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:layout_weight="2"
+      android:gravity="center_horizontal"
         android:layout_height="0dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/large_text"
             android:textColor="@color/black"
             android:text="@string/no_opt"
             android:textSize="@dimen/small_text" />
@@ -141,35 +145,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/resend_opt"
-            android:layout_marginLeft="@dimen/mini_text"
             android:textColor="@color/red"
             android:textSize="@dimen/medium_text" />
     </LinearLayout>
 
-<LinearLayout
+<Button
+    android:id="@+id/btn_continue_signup"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/code_via_call"
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:background="@color/button_color_main"
-            android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/medium_text"
+    android:enabled="false"
+    android:textColor="@color/white"
+    android:text="@string/upload_continue"/>
+    </LinearLayout>
+</ScrollView>
 
-        <TextView
-            android:id="@+id/tv_timer"
-            android:hint="18"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="@color/button_color_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    </LinearLayout>
-</LinearLayout>

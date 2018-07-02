@@ -32,15 +32,7 @@ public class HomeopathyFragment extends Fragment {
         view= inflater.inflate(R.layout.fragment_homeopathy, container, false);
 
         MenuActivity.llTopBar.setVisibility(View.GONE);
-//        MenuActivity.llTopBar.setBackgroundResource(R.drawable.ad_common);
-//        MenuActivity.ivMenuLines.setImageResource(R.drawable.left_arrow);
-//        MenuActivity.tvPlaceName.setText("AYUSH");
-//        MenuActivity.tvPlaceName.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.xlarge_text));
-//        MenuActivity.tvPlaceName.setTypeface(null, Typeface.NORMAL);
-//        MenuActivity.tvCityName.setVisibility(View.GONE);
-//        MenuActivity.ivDownArrow.setVisibility(View.GONE);
-//        MenuActivity.ivSearch.setVisibility(View.GONE);
-//        MenuActivity.ivCart.setVisibility(View.GONE);
+
         ayushMainAdapter =new AyushMainAdapter(getActivity());
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         lvHomeopathy=(ListView)view.findViewById(R.id.lv_homepathy_list);

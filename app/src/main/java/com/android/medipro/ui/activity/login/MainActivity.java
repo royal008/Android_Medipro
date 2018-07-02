@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.medipro.R;
 import com.android.medipro.ui.activity.login.MobileSignUpActivity;
@@ -17,7 +18,7 @@ import com.android.medipro.ui.activity.login.MobileSignUpActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etPhoneNumber;
     Button btnContinue;
-
+    TextView tvTerms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,11 @@ TextWatcher PhoneNumberTextWatcher = new TextWatcher() {
     private void getView() {
         etPhoneNumber = (EditText) findViewById(R.id.et_phone_number);
         btnContinue=(Button)findViewById(R.id.btn_continue_main);
-
+        tvTerms = (TextView)findViewById(R.id.tv_terms);
       }
 private void onClick(){
     btnContinue.setOnClickListener(this);
+    tvTerms.setOnClickListener(this);
 }
     @Override
     public void onClick(View v) {
@@ -71,6 +73,9 @@ private void onClick(){
                 startActivity(i);
                 finish();
                 break;
+            case R.id.tv_terms:
+                Intent intent = new Intent (MainActivity.this,TermsAndConditionsActivity.class);
+                startActivity(intent);
         }
     }
 }

@@ -7,16 +7,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.medipro.R;
+import com.android.medipro.custom_utils.FragmentBeanClass;
+import com.android.medipro.ui.fragments.InviteToEarn.InviteToEarnFragment;
+import com.android.medipro.ui.fragments.healthInsurance2.HealthInsuranceFragment2;
 import com.android.medipro.ui.fragments.home.HomeFragment;
 
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     DrawerLayout drawerLayout;
     ListView lvMenuList;
     View main_content;
@@ -29,14 +33,17 @@ public class MenuActivity extends AppCompatActivity {
     public static TextView tvPlaceName,tvCityName;
     FragmentManager fm;
     FragmentTransaction ft;
+    FragmentBeanClass fbc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         getView();
         setFragment(0);
-
+     onClick();
     }
+
+
 
     private void setFragment(int i) {
         Fragment fragment = null;
@@ -59,6 +66,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void getView() {
+        fbc=new FragmentBeanClass( MenuActivity.this,R.id.fl_container_main);
         lvMenuList=(ListView)findViewById(R.id.lv_menu_list);
         menuListAdapter=new MenuListAdapter(this,menuList,menuImages);
         lvMenuList.setAdapter(menuListAdapter);
@@ -71,16 +79,8 @@ public class MenuActivity extends AppCompatActivity {
       ivDownArrow=(ImageView)findViewById(R.id.iv_down_arrow);
         ivSearch=(ImageView)findViewById(R.id.iv_search);
         ivCart=(ImageView)findViewById(R.id.iv_cart);
-
         main_content = findViewById(R.id.main_content);
 
-        ivMenuLines.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                toggle();
-            }
-        });
 
 
         drawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
@@ -106,13 +106,37 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
-    }
 
+        lvMenuList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position==5){
+                    toggle();
+                    fbc.setFragment(new InviteToEarnFragment());
+
+                }
+            }
+        });
+    }
+    private void onClick() {
+        ivMenuLines.setOnClickListener(this);
+    }
     private void toggle() {
         if (drawerLayout.isDrawerOpen(llMenu)) {
             drawerLayout.closeDrawer(llMenu);
         } else {
             drawerLayout.openDrawer(llMenu);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_menu_lines:
+                toggle();
+                break;
+
+
         }
     }
 }
