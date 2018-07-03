@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,7 +17,7 @@ import com.android.medipro.ui.activity.main.MenuActivity;
 
 public class MobileSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvPhone;
-    ImageView ivModeEdit;
+   // ImageView ivModeEdit;
     Button btnContinue;
     EditText etOTPFirst,etOPTSecond,etOTPThird,etOPTFourth,etOTPFifth,etOTPSixth;
 
@@ -37,13 +38,14 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
         etOTPFifth.addTextChangedListener(OTPTextWatcher);
         etOTPSixth.addTextChangedListener(OTPTextWatcher);
 
+
        // tvTimer();
         onClick();
 
     }
 
     private void onClick() {
-        ivModeEdit.setOnClickListener(this);
+        //ivModeEdit.setOnClickListener(this);
         btnContinue.setOnClickListener(this);
     }
 
@@ -123,16 +125,16 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
         etOPTFourth = (EditText)findViewById(R.id.et_opt_fourth_digit);
         etOTPFifth = (EditText)findViewById(R.id.et_opt_fifth_digit);
         etOTPSixth = (EditText)findViewById(R.id.et_opt_sixth_digit);
-        ivModeEdit=(ImageView)findViewById(R.id.iv_mode_edit);
+       // ivModeEdit=(ImageView)findViewById(R.id.iv_mode_edit);
         btnContinue=(Button)findViewById(R.id.btn_continue_signup);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.iv_mode_edit:
-                Intent i = new Intent(MobileSignUpActivity.this,MainActivity.class);
-                startActivity(i);
+//            case R.id.iv_mode_edit:
+//                Intent i = new Intent(MobileSignUpActivity.this,MainActivity.class);
+//                startActivity(i);
             case R.id.btn_continue_signup:
                  Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
                  startActivity(intent);

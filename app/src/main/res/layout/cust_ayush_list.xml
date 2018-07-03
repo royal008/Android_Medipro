@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/ll_doctor_details"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/mini_text"
         android:background="@color/white"
@@ -16,24 +16,21 @@
         android:padding="@dimen/very_small_text">
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/doctor_list" />
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/medium_text"
-            android:layout_weight="2"
+            android:layout_marginLeft="@dimen/small_text"
             android:gravity="left"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/smaller_text"
                 android:text="Dr.Name"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/medium_text"
@@ -42,23 +39,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/smaller_text"
-                android:text="Homeopathy"
+                android:text="Cardiologist"
                 android:textSize="@dimen/smaller_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/smaller_text"
                 android:text="Guindi,Chennai"
                 android:textSize="@dimen/very_small_text" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:gravity="right"
             android:orientation="horizontal">
 
@@ -73,7 +67,7 @@
                 android:paddingLeft="@dimen/medium_text"
                 android:paddingRight="@dimen/medium_text"
                 android:paddingTop="@dimen/mini_text"
-                android:text="CALL"
+                android:text="@string/call"
                 android:textColor="@color/white"
                 android:textSize="@dimen/small_text" />
         </LinearLayout>

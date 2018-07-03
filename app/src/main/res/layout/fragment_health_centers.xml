@@ -22,18 +22,7 @@
                 android:padding="@dimen/very_small_text"
                 android:src="@drawable/left_arrow" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="right">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/very_small_text"
-                    android:src="@drawable/small_search" />
-            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -58,33 +47,31 @@
         <ImageView
             android:id="@+id/iv_yoga"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:layout_weight="1"
+
             android:scaleType="fitXY"
             android:src="@drawable/yoga" />
 
         <ImageView
             android:id="@+id/iv_gym"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/gym" />
 
         <ImageView
             android:id="@+id/iv_spa"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/spa" />
 

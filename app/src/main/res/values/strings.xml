@@ -21,7 +21,10 @@
     <string name="blood_bank">BLOOD BANK</string>
     <string name="hyphen">-</string>
     <string name="stem_cell">STEM CELL</string>
-    <string name="phone_code">+91</string>Get code via call
+    <string name="phone_code">+91</string>
+    <string name="chennai">Chennai</string>
+    <string name="guindy">Guindy,</string>
+    <string name="call">CALL</string>
     <string name="terms_conditions">Terms &amp; Conditions</string>
     <string name="code_via_call">Get code via call</string>
     <string name="no_opt">Did not receive the code?</string>
@@ -54,4 +57,7 @@
     <string name="add_record">ADD A RECORD</string>
     <string name="submit">SUBMIT</string>
     <string name="medical_details">Medicine Details</string>
+    <string name="admob_app_id">ca-app-pub-4893336231986175-8892820885</string>
+    <string name="banner_home_footer">ca-app-pub-4893336231986175/6291117393</string>
+
 </resources>

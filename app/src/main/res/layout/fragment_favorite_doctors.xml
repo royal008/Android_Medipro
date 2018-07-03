@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="2dp"
                 android:gravity="center"
-                android:text="Favorite Doctors"
+                android:text="My Favorite Doctors"
                 android:textColor="@color/white"
                 android:textSize="@dimen/medium_text"
                 android:textStyle="bold" />

@@ -44,34 +44,31 @@
         <ImageView
             android:id="@+id/iv_homeopathy"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
             android:layout_marginTop="@dimen/small_text"
-            android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/homeopathy" />
 
         <ImageView
             android:id="@+id/iv_ayurvedic"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/ayurvedic" />
 
         <ImageView
             android:id="@+id/iv_siddha"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/siddha" />
     </LinearLayout>

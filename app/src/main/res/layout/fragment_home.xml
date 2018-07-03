@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -69,17 +70,17 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/small_text"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/small_text">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
-                android:layout_marginLeft="@dimen/small_text"
-                android:layout_marginRight="@dimen/small_text"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/small_text"
+                android:layout_marginRight="@dimen/small_text" />
 
 
             <com.viewpagerindicator.CirclePageIndicator
@@ -101,9 +102,9 @@
         <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
             android:layout_marginLeft="@dimen/small_text"
-            android:layout_marginTop="@dimen/small_text">
+            android:layout_marginTop="@dimen/small_text"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/ll_menu"
@@ -569,18 +570,20 @@
             android:layout_marginBottom="@dimen/small_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
-            android:numColumns="4"/>
+            android:numColumns="4" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible">
+            android:layout_gravity="center"
+            android:gravity="center">
 
-            <TextView
-                android:layout_width="match_parent"
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="for ads on use"
-                android:visibility="invisible" />
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_home_footer" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -71,7 +71,6 @@ private void onClick(){
                 Log.e("phone","number"+phone);
                 i.putExtra("PhoneNumber",phone);
                 startActivity(i);
-                finish();
                 break;
             case R.id.tv_terms:
                 Intent intent = new Intent (MainActivity.this,TermsAndConditionsActivity.class);

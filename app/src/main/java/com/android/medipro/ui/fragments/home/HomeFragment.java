@@ -4,6 +4,7 @@ package com.android.medipro.ui.fragments.home;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,10 @@ import com.android.medipro.ui.fragments.bookAppointment.BookAppointmentFragment;
 import com.android.medipro.ui.fragments.bookTest.BookTestFragment;
 import com.android.medipro.ui.fragments.healthBank.HealthBankFragment;
 import com.android.medipro.ui.fragments.healthCenters.HealthCentersFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -41,6 +46,7 @@ import java.util.TimerTask;
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
     View view;
+    AdView adView;
     FragmentBeanClass fbc;
     LinearLayout llUploadPrescription, llBookAppointment, llMenu, llOrderMedicines, llBookTest, llShopping, llAyush, llInsurance, llHealthCenter, llHealthBank;
     ExpandableGridView gvPopularProducts;
@@ -54,7 +60,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     PopularProductAdapter popularProductAdapter;
     ArrayList alPopProductImage, alPopProductName, alPopProductOldPrice, alPopProductDiscount, alPopProductNewPrice;
     TextView tvViewAllProduct;
-
     Context context;
 
     @Override
@@ -87,7 +92,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         llHealthBank = (LinearLayout) view.findViewById(R.id.ll_health_bank);
         mPager = (ViewPager) view.findViewById(R.id.pager);
         indicator = (CirclePageIndicator) view.findViewById(R.id.indicator);
+        adView = (AdView) view.findViewById(R.id.adView);
 
+
+        MobileAds.initialize(getActivity(), getString(R.string.admob_app_id));
 
         alPopProductImage = new ArrayList();
         alPopProductName = new ArrayList();
@@ -130,13 +138,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void init() {
-        mPager.setAdapter(new SlidingImage_Adapter(getActivity(),imageModelArrayList));
+        mPager.setAdapter(new SlidingImage_Adapter(getActivity(), imageModelArrayList));
         indicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
 //Set circle indicator radius
         indicator.setRadius(5 * density);
 
-        NUM_PAGES =imageModelArrayList.size();
+        NUM_PAGES = imageModelArrayList.size();
 
         // Auto start of viewpager
         final Handler handler = new Handler();
@@ -249,5 +257,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+//        adView.setAdSize(AdSize.BANNER);
+//        adView.setAdUnitId(getString(R.string.banner_home_footer));
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
 }
