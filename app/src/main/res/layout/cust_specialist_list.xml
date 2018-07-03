@@ -17,6 +17,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/dr_name"
             android:src="@drawable/doctor_list" />
 
         <LinearLayout
@@ -24,13 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/small_text"
-            android:gravity="left"
+            android:layout_marginStart="@dimen/small_text"
+            android:gravity="start"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dr.Name"
+                android:text="@string/dr_name"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/medium_text"
                 android:textStyle="bold" />
@@ -38,13 +40,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cardiologist"
+                android:text="@string/cardiologist"
                 android:textSize="@dimen/smaller_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guindi,Chennai"
+                android:text="@string/guindy_chennai"
                 android:textSize="@dimen/very_small_text" />
         </LinearLayout>
 
@@ -52,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="right"
+            android:gravity="end"
             android:orientation="horizontal">
 
             <TextView
@@ -66,7 +68,7 @@
                 android:paddingLeft="@dimen/medium_text"
                 android:paddingRight="@dimen/medium_text"
                 android:paddingTop="@dimen/mini_text"
-                android:text="BOOK"
+                android:text="@string/book"
                 android:textColor="@color/white"
                 android:textSize="@dimen/small_text" />
         </LinearLayout>

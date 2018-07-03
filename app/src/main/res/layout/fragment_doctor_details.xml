@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="@dimen/very_small_text"
+            android:contentDescription="@string/more"
             android:src="@drawable/left_arrow" />
 
         <TextView
@@ -24,8 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/very_small_text"
+            android:layout_marginStart="@dimen/very_small_text"
             android:gravity="center"
-            android:text="Doctor Details"
+            android:text="@string/doctor_details"
             android:textColor="@color/white"
             android:textSize="@dimen/large_text"
             android:textStyle="bold" />
@@ -34,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="right"
+            android:gravity="end"
             android:orientation="horizontal">
 
             <ImageView
@@ -42,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/mini_text"
+                android:contentDescription="@string/search"
                 android:src="@drawable/star" />
 
             <ImageView
@@ -49,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/mini_text"
+                android:contentDescription="@string/share_now"
                 android:src="@drawable/share" />
 
             <ImageView
@@ -56,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/mini_text"
+                android:contentDescription="@string/menu"
                 android:src="@drawable/small_ellipsis_white" />
         </LinearLayout>
 
@@ -73,6 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/small_text"
+            android:layout_marginStart="@dimen/small_text"
+            android:contentDescription="@string/user_name"
             android:src="@drawable/doctor_list" />
 
         <LinearLayout
@@ -80,12 +87,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/small_text"
+            android:layout_marginStart="@dimen/small_text"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dr.Name"
+                android:text="@string/dr_name"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
@@ -93,7 +101,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cardiologist"
+                android:text="@string/cardiologist"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
@@ -111,7 +119,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -119,6 +127,7 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="1dp"
                     android:layout_weight="2"
+                    android:baselineAligned="false"
                     android:background="@color/white"
                     android:orientation="horizontal"
                     android:padding="@dimen/mini_text">
@@ -127,12 +136,13 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/smaller_text"
+                        android:layout_marginStart="@dimen/smaller_text"
                         android:layout_weight="1">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10 Yrs"
+                            android:text="@string/yrs"
                             android:textColor="@color/dark_gray"
                             android:textSize="@dimen/smaller_text"
                             android:textStyle="bold" />
@@ -140,7 +150,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Experience"
+                            android:text="@string/experince"
                             android:textColor="@color/dark_gray"
                             android:textSize="@dimen/smaller_text" />
                     </LinearLayout>
@@ -153,7 +163,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="INR 600"
+                            android:text="@string/inr"
                             android:textColor="@color/dark_gray"
                             android:textSize="@dimen/smaller_text"
                             android:textStyle="bold" />
@@ -161,7 +171,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Consultation Fees"
+                            android:text="@string/fee"
                             android:textColor="@color/dark_gray"
                             android:textSize="@dimen/smaller_text" />
                     </LinearLayout>
@@ -183,7 +193,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hospital Name"
+                        android:text="@string/hospital_name"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -192,7 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="Address line 1"
+                        android:text="@string/address1"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/smaller_text" />
 
@@ -200,7 +210,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="1dp"
-                        android:text="Address line 2"
+                        android:text="@string/address2"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/smaller_text" />
 
@@ -226,7 +236,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Visiting Timing"
+                        android:text="@string/visit_time"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -247,7 +257,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="MON "
+                                android:text="@string/mon"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -256,7 +266,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -271,7 +281,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="TUE "
+                                android:text="@string/tue"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -280,7 +290,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -295,7 +305,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="WED"
+                                android:text="@string/wed"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -304,7 +314,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -319,7 +329,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="THR"
+                                android:text="@string/thr"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -328,7 +338,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -343,7 +353,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="FRI"
+                                android:text="@string/fri"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -352,7 +362,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -367,7 +377,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="SAT"
+                                android:text="@string/sat"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -376,7 +386,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -391,7 +401,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.2"
-                                android:text="SUN"
+                                android:text="@string/sun"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
 
@@ -400,7 +410,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:layout_weight="0.8"
-                                android:text="06:30 am - 07.30 am"
+                                android:text="@string/visit"
                                 android:textColor="@color/gray"
                                 android:textSize="@dimen/smaller_text" />
                         </LinearLayout>
@@ -416,13 +426,13 @@
         android:layout_weight="0.8">
 
         <TextView
-            android:id="@+id/tv_call_doctor"
+            android:id="@+id/tv_book_doctor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@color/upload_background_color"
             android:gravity="center"
-            android:text="BOOK APPOINTMENT"
+            android:text="@string/book_appi"
             android:textColor="@color/white"
             android:textSize="@dimen/medium_text"
             android:textStyle="bold" />

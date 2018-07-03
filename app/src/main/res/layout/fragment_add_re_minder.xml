@@ -20,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/very_small_text"
+                android:contentDescription="@string/menu"
                 android:src="@drawable/left_arrow" />
         </LinearLayout>
 
@@ -28,9 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/large_text"
+            android:layout_marginStart="@dimen/large_text"
             android:layout_marginTop="@dimen/medium_text"
             android:gravity="center_vertical"
-            android:text="ADD REMINDER"
+            android:text="@string/remainder"
             android:textColor="@color/white"
             android:textSize="@dimen/xlarge_text" />
     </LinearLayout>
@@ -60,13 +62,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Title"
+                        android:text="@string/title"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/small_text" />
 
@@ -74,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Medicine Name"
+                        android:text="@string/medicine_name"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -85,6 +88,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/off_white"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/medicine_name"
                     android:src="@drawable/documents" />
             </LinearLayout>
 
@@ -101,13 +105,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Type of Reminder"
+                        android:text="@string/type_reminder"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/small_text" />
 
@@ -115,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Medicine"
+                        android:text="@string/medicine"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -125,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/more"
                     android:src="@drawable/down_arrow" />
             </LinearLayout>
 
@@ -141,13 +147,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dosage"
+                        android:text="@string/dosage"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/small_text" />
 
@@ -155,7 +162,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="1.0 dose"
+                        android:text="@string/dose"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -165,6 +172,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/more"
                     android:src="@drawable/down_arrow" />
             </LinearLayout>
 
@@ -181,13 +189,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Timings"
+                        android:text="@string/time"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/small_text" />
 
@@ -195,7 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="10 AM, 2 PM, 10 PM"
+                        android:text="@string/timings_dose"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -205,6 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/more"
                     android:src="@drawable/right_arrow" />
             </LinearLayout>
 
@@ -221,13 +231,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Days"
+                        android:text="@string/days"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/small_text" />
 
@@ -235,7 +246,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Everyday"
+                        android:text="@string/everyday"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -245,6 +256,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/more"
                     android:src="@drawable/right_arrow" />
             </LinearLayout>
 
@@ -261,13 +273,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Duration"
+                        android:text="@string/duration"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/small_text" />
 
@@ -275,7 +288,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="5 days"
+                        android:text="@string/five_days"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/small_text"
                         android:textStyle="bold" />
@@ -285,6 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/more"
                     android:src="@drawable/down_arrow" />
             </LinearLayout>
         </LinearLayout>
@@ -297,7 +311,7 @@
             android:background="@color/upload_background_color"
             android:gravity="center"
             android:padding="@dimen/small_text"
-            android:text="SAVE"
+            android:text="@string/save"
             android:textColor="@color/white"
             android:textSize="@dimen/small_text" />
 

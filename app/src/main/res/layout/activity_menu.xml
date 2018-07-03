@@ -23,6 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:padding="@dimen/small_text"
+                android:contentDescription="@string/menu"
                 android:src="@drawable/menu_lines" />
 
             <TextView
@@ -31,8 +32,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/very_small_text"
+                android:layout_marginStart="@dimen/very_small_text"
                 android:gravity="center"
-                android:text="Guindy,"
+                android:text="@string/guindy"
                 android:textColor="@color/white"
                 android:textSize="@dimen/large_text"
                 android:textStyle="bold" />
@@ -43,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text=" Chennai"
+                android:text="@string/chennai"
                 android:textColor="@color/white"
                 android:textSize="@dimen/medium_text" />
 
@@ -53,6 +55,7 @@
                android:layout_width="wrap_content"
                android:layout_gravity="center"
                android:padding="@dimen/mini_text"
+               android:contentDescription="@string/more"
                android:layout_height="wrap_content" />
 
 
@@ -60,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:gravity="right"
+                android:gravity="end"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -69,6 +72,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/search"
                     android:src="@drawable/small_search" />
                 <ImageView
                     android:id="@+id/iv_cart"
@@ -76,6 +80,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/shop"
                     android:src="@drawable/smal_cart" />
             </LinearLayout>
 
@@ -95,7 +100,7 @@
         android:id="@+id/ll_menu"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -110,6 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/signup"
                 android:layout_margin="@dimen/medium_text"
                 android:src="@drawable/user_signup" />
 
@@ -117,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="User Name"
+                android:text="@string/user_name"
                 android:textColor="@color/white"
                 android:textSize="@dimen/medium_text"
                 android:textStyle="bold" />

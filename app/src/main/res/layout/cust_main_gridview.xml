@@ -15,9 +15,12 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginTop="2dp"
+        android:contentDescription="@string/ayush"
         android:background="@color/white"
         android:paddingLeft="@dimen/medium_text"
+        android:layout_marginStart="@dimen/medium_text"
         android:paddingRight="@dimen/medium_text"
+        android:layout_marginEnd="@dimen/medium_text"
         android:paddingTop="@dimen/very_small_text"
         android:src="@drawable/ayush" />
 
@@ -32,7 +35,7 @@
         android:background="@color/white"
         android:gravity="center"
         android:paddingBottom="3dp"
-        android:text="Order Medicines"
+        android:text="@string/order_medicines"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/very_small_text" />
 

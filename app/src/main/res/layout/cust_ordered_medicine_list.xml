@@ -18,6 +18,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/order_medicines"
             android:src="@drawable/order_medicine" />
 
         <LinearLayout
@@ -30,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/very_small_text"
-                android:text="Product Name"
+                android:layout_marginStart="@dimen/very_small_text"
+                android:text="@string/product_name"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/medium_text"
                 android:textStyle="bold" />
@@ -39,13 +41,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/very_small_text"
+                android:layout_marginStart="@dimen/very_small_text"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/horizontal_line"
-                    android:text="₹349.0"
+                    android:text="@string/amount"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/smaller_text" />
 
@@ -53,7 +56,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_text"
-                    android:text="%15.0 OFF"
+                    android:layout_marginStart="@dimen/small_text"
+                    android:text="@string/offer"
                     android:textColor="@color/red"
                     android:textSize="@dimen/smaller_text" />
             </LinearLayout>
@@ -62,7 +66,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/very_small_text"
-                android:text="₹297.0"
+                android:layout_marginStart="@dimen/very_small_text"
+                android:text="@string/amt"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
@@ -70,11 +75,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:background="@drawable/blue_curved_rectangle"
                 android:gravity="center"
                 android:padding="@dimen/mini_text"
-                android:text="ADD TO CART"
+                android:text="@string/add_to_cart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/smaller_text"
                 android:textStyle="bold" />

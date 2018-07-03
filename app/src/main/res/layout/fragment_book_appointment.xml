@@ -17,6 +17,7 @@
 
             <ImageView
                 android:id="@+id/iv_back"
+                android:contentDescription="@string/more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/very_small_text"
@@ -26,19 +27,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="right">
+                android:gravity="end">
 
                 <ImageView
                     android:id="@+id/iv_search"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/very_small_text"
+                    android:contentDescription="@string/search"
                     android:src="@drawable/small_search" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/very_small_text"
+                    android:contentDescription="@string/filter"
                     android:src="@drawable/filter_white" />
             </LinearLayout>
         </LinearLayout>
@@ -48,9 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:layout_marginTop="@dimen/medium_text"
             android:gravity="center_vertical"
-            android:text="FIND DOCTORS,"
+            android:text="@string/find_doc"
             android:textColor="@color/white"
             android:textSize="@dimen/xlarge_text" />
 
@@ -59,10 +63,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:layout_marginTop="2dp"
             android:alpha=".7"
             android:gravity="center_vertical"
-            android:text="Clinics, hospitals, specialites"
+            android:text="@string/clinics"
             android:textColor="@color/white"
             android:textSize="@dimen/smaller_text" />
     </LinearLayout>

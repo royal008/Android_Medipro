@@ -9,8 +9,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:contentDescription="@string/menu"
         android:layout_marginBottom="@dimen/very_small_text"
         android:layout_marginLeft="@dimen/xlarge_text"
+        android:layout_marginStart="@dimen/xlarge_text"
         android:paddingTop="@dimen/medium_text"
         android:src="@drawable/contactus_menu" />
 
@@ -21,8 +23,9 @@
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/very_small_text"
         android:layout_marginLeft="@dimen/xlarge_text"
+        android:layout_marginStart="@dimen/xlarge_text"
         android:paddingTop="@dimen/medium_text"
-        android:text="My Orders"
+        android:text="@string/my_orders"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/medium_text"
         android:textStyle="bold" />

@@ -20,6 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="@dimen/small_text"
+                android:contentDescription="@string/more"
                 android:src="@drawable/left_arrow" />
 
 
@@ -27,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="right"
+                android:gravity="end"
                 android:orientation="horizontal">
 
                 <TextView
@@ -50,6 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/location"
                     android:src="@drawable/mappin" />
             </LinearLayout>
         </LinearLayout>
@@ -58,14 +60,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/large_text"
+            android:layout_marginLeft="@dimen/large_text"
             android:gravity="center_vertical"
             android:text="@string/insurance"
             android:textColor="@color/white"
             android:textSize="@dimen/xlarge_text" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
 
 
@@ -73,21 +72,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="right"
+                android:gravity="end"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/search"
                     android:src="@drawable/small_search" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/mini_text"
+                    android:contentDescription="@string/filter"
                     android:src="@drawable/filter_white" />
-            </LinearLayout>
+
         </LinearLayout>
 
 

@@ -10,5 +10,6 @@
         android:layout_height="200dp"
         android:adjustViewBounds="true"
         android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/more"
         android:scaleType="centerCrop" />
 </FrameLayout>

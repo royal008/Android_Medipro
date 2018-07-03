@@ -23,6 +23,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/book_test"
                 android:src="@drawable/order_medicine" />
 
             <LinearLayout
@@ -35,7 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/very_small_text"
-                    android:text="Center Name"
+                    android:layout_marginStart="@dimen/very_small_text"
+                    android:text="@string/center_name"
                     android:textColor="@color/dark_gray"
                     android:textSize="@dimen/medium_text"
                     android:textStyle="bold" />
@@ -44,8 +46,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:layout_marginTop="@dimen/mini_text"
-                    android:text="Location"
+                    android:text="@string/location"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/small_text" />
 
@@ -53,8 +56,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:layout_marginTop="@dimen/mini_text"
-                    android:text="open today 07 am - 08 pm"
+                    android:text="@string/timings"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/small_text" />
 
@@ -65,6 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/very_small_text"
+            android:layout_marginStart="@dimen/very_small_text"
             android:orientation="horizontal">
 
             <TextView
@@ -72,8 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/small_text"
+                android:layout_marginStart="@dimen/small_text"
                 android:layout_weight="0.9"
-                android:text="1.62 km"
+                android:text="@string/distance"
                 android:textColor="@color/red"
                 android:textSize="@dimen/medium_text" />
 
@@ -88,7 +94,7 @@
                 android:paddingLeft="@dimen/large_text"
                 android:paddingRight="@dimen/large_text"
                 android:paddingTop="@dimen/mini_text"
-                android:text="BOOK"
+                android:text="@string/book"
                 android:textColor="@color/white"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />

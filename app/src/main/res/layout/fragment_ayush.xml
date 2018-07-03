@@ -17,6 +17,7 @@
 
             <ImageView
                 android:id="@+id/iv_back"
+                android:contentDescription="@string/more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/very_small_text"
@@ -28,9 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/large_text"
+            android:layout_marginStart="@dimen/large_text"
             android:layout_marginTop="@dimen/medium_text"
             android:gravity="center_vertical"
-            android:text="AYUSH"
+            android:text="@string/ayush"
+            android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/xlarge_text" />
     </LinearLayout>
@@ -45,6 +48,7 @@
             android:id="@+id/iv_homeopathy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/homeopathy"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
@@ -60,12 +64,14 @@
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
             android:scaleType="fitXY"
+            android:contentDescription="@string/ayurvedic"
             android:src="@drawable/ayurvedic" />
 
         <ImageView
             android:id="@+id/iv_siddha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/siddha"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"

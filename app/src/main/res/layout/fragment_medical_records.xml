@@ -19,6 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/very_small_text"
+                android:contentDescription="@string/more"
                 android:src="@drawable/left_arrow" />
         </LinearLayout>
 
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/large_text"
+            android:layout_marginStart="@dimen/large_text"
             android:layout_marginTop="@dimen/medium_text"
             android:gravity="center_vertical"
             android:text="@string/medical_records"
@@ -40,7 +42,7 @@
         android:layout_marginLeft="@dimen/small_text"
         android:layout_marginRight="@dimen/small_text"
         android:layout_marginTop="@dimen/small_text"
-        android:text="2017" />
+        android:text="@string/year" />
 
     <ListView
         android:id="@+id/lv_medical_records"

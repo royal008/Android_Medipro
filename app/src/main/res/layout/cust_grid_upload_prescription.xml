@@ -21,6 +21,7 @@
             android:id="@+id/iv_img_container"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="@string/upload_camera"
             android:layout_gravity="center"
             android:scaleType="fitXY" />
 
@@ -28,11 +29,14 @@
             android:id="@+id/iv_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="@dimen/medium_text" />
+            android:layout_gravity="end"
+            android:contentDescription="@string/close"
+            android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"/>
 
         <ImageView
             android:id="@+id/iv_edit"
+            android:contentDescription="@string/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"

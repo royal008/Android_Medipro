@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="15"
+                android:text="@string/date"
                 android:textColor="@color/red"
                 android:textSize="@dimen/medium_text"
                 android:textStyle="bold" />
@@ -39,7 +39,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
-                android:text="Nov"
+                android:text="@string/nov"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
@@ -50,13 +50,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/medium_text"
+            android:layout_marginStart="@dimen/medium_text"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Records added by you"
+                android:text="@string/record_by_user"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
@@ -65,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/mini_text"
-                android:text="Record for user"
+                android:text="@string/records_for_user"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/small_text" />
         </LinearLayout>
@@ -74,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:contentDescription="@string/menu"
             android:src="@drawable/ellipsis_red" />
     </LinearLayout>
 
