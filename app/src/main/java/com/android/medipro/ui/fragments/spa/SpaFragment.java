@@ -2,6 +2,7 @@ package com.android.medipro.ui.fragments.spa;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.medipro.R;
-import com.android.medipro.custom_utils.AyushMainAdapter;
+
 import com.android.medipro.ui.activity.main.MenuActivity;
+import com.android.medipro.ui.fragments.bookTest.BookTestAdapter;
 
 
 /**
@@ -21,7 +23,7 @@ public class SpaFragment extends Fragment {
     View view;
     ImageView ivBack;
     ListView lvSpa;
-    AyushMainAdapter ayushMainAdapter;
+   BookTestAdapter bookTestAdapter;
 
 
 
@@ -31,17 +33,17 @@ public class SpaFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_spa, container, false);
 
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
 
-        ayushMainAdapter = new AyushMainAdapter(getActivity());
+    bookTestAdapter = new BookTestAdapter(getActivity());
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         lvSpa=(ListView)view.findViewById(R.id.lv_spa_list);
-        lvSpa.setAdapter(ayushMainAdapter);
+        lvSpa.setAdapter(bookTestAdapter);
         onClick();
         return view;
     }

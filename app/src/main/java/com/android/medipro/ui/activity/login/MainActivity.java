@@ -1,7 +1,6 @@
 package com.android.medipro.ui.activity.login;
 
 import android.content.Intent;
-import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.medipro.R;
-import com.android.medipro.ui.activity.login.MobileSignUpActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etPhoneNumber;

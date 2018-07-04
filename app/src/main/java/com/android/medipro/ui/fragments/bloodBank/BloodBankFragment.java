@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.AyushMainAdapter;
 import com.android.medipro.ui.activity.main.MenuActivity;
+import com.android.medipro.ui.fragments.bookTest.BookTestAdapter;
 
 
 /**
@@ -21,7 +22,7 @@ public class BloodBankFragment extends Fragment {
 View view;
 ImageView ivBack;
 ListView lvBloodBank;
-AyushMainAdapter ayushMainAdapter;
+BookTestAdapter bookTestAdapter;
 
     public BloodBankFragment() {
         // Required empty public constructor
@@ -36,10 +37,10 @@ AyushMainAdapter ayushMainAdapter;
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
 
-        ayushMainAdapter = new AyushMainAdapter(getActivity());
+        bookTestAdapter = new BookTestAdapter(getActivity());
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         lvBloodBank=(ListView)view.findViewById(R.id.lv_blood_bank_list);
-        lvBloodBank.setAdapter(ayushMainAdapter);
+        lvBloodBank.setAdapter(bookTestAdapter);
         onClick();
         return view;
     }

@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.AyushMainAdapter;
 import com.android.medipro.ui.activity.main.MenuActivity;
+import com.android.medipro.ui.fragments.bookTest.BookTestAdapter;
 
 
 /**
@@ -21,7 +22,7 @@ public class GymFragment extends Fragment {
     View view;
     ImageView ivBack;
     ListView lvGym;
-    AyushMainAdapter ayushMainAdapter;
+    BookTestAdapter bookTestAdapter;
 
 
     public GymFragment() {
@@ -37,10 +38,10 @@ public class GymFragment extends Fragment {
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
 
-        ayushMainAdapter = new AyushMainAdapter(getActivity());
+        bookTestAdapter = new BookTestAdapter(getActivity());
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         lvGym=(ListView)view.findViewById(R.id.lv_gym_list);
-        lvGym.setAdapter(ayushMainAdapter);
+        lvGym.setAdapter(bookTestAdapter);
         onClick();
         return view;
     }

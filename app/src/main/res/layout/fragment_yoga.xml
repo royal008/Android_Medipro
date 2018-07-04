@@ -2,10 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
         android:background="@drawable/ad_common"
         android:orientation="vertical">
 
@@ -18,80 +18,24 @@
                 android:id="@+id/iv_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="@dimen/small_text"
+                android:padding="@dimen/very_small_text"
                 android:contentDescription="@string/more"
                 android:src="@drawable/left_arrow" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/guindy"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/small_text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/chennai"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/small_text" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/mini_text"
-                    android:contentDescription="@string/location"
-                    android:src="@drawable/mappin" />
-            </LinearLayout>
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/large_text"
             android:layout_marginLeft="@dimen/large_text"
+            android:layout_marginStart="@dimen/large_text"
+            android:layout_marginTop="@dimen/medium_text"
             android:gravity="center_vertical"
             android:text="@string/yoga"
             android:textColor="@color/white"
             android:textSize="@dimen/xlarge_text" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/mini_text"
-                    android:contentDescription="@string/search"
-                    android:src="@drawable/small_search" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/mini_text"
-                    android:contentDescription="@string/filter"
-                    android:src="@drawable/filter_white" />
-            </LinearLayout>
-
-
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -100,12 +44,76 @@
         android:layout_weight="2"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:baselineAligned="false"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/sort"
+                    android:src="@drawable/sort" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/smaller_text"
+                    android:text="@string/sort"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/medium_text"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/filter"
+                    android:src="@drawable/filter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/smaller_text"
+                    android:text="@string/filter"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/medium_text" />
+            </LinearLayout>
+
+        </LinearLayout>
+
         <ListView
             android:id="@+id/lv_yoga_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/smaller_text">
+            android:layout_margin="@dimen/medium_text">
 
         </ListView>
+
     </LinearLayout>
 </LinearLayout>

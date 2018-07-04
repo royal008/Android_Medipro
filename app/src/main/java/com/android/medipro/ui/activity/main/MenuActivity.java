@@ -18,6 +18,7 @@ import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.fragments.InviteToEarn.InviteToEarnFragment;
 import com.android.medipro.ui.fragments.healthInsurance2.HealthInsuranceFragment2;
 import com.android.medipro.ui.fragments.home.HomeFragment;
+import com.android.medipro.ui.fragments.medicalRecords.MedicalRecordsFragment;
 
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
@@ -113,7 +114,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 if(position==5){
                     toggle();
                     fbc.setFragment(new InviteToEarnFragment());
-
+                }
+                if(position==1){
+                    toggle();
+                    fbc.setFragment(new MedicalRecordsFragment());
                 }
             }
         });

@@ -32,8 +32,9 @@
             android:layout_marginStart="@dimen/large_text"
             android:layout_marginTop="@dimen/medium_text"
             android:gravity="center_vertical"
-            android:text="HEALTH BANK"
+            android:text="@string/health_bank"
             android:textColor="@color/white"
+            android:textAllCaps="true"
             android:textSize="@dimen/xlarge_text" />
     </LinearLayout>
 
@@ -53,6 +54,7 @@
             android:layout_marginLeft="@dimen/small_text"
             android:layout_marginRight="@dimen/small_text"
             android:scaleType="fitXY"
+            android:contentDescription="@string/stem_cell"
             android:src="@drawable/stem_cell" />
 
         <ImageView
@@ -61,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/smaller_text"
             android:layout_marginLeft="@dimen/small_text"
+            android:contentDescription="@string/blood_bank"
             android:layout_marginRight="@dimen/small_text"
             android:scaleType="fitXY"
             android:src="@drawable/bloodbank" />

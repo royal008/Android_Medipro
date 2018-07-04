@@ -11,17 +11,20 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/small_text"
         android:layout_marginRight="@dimen/small_text"
-        android:gravity="right">
+        android:gravity="end">
 
         <ImageView
             android:id="@+id/iv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|end"
-            android:gravity="right|end"
+            android:layout_gravity="end"
+            android:gravity="end"
             android:paddingBottom="@dimen/mini_text"
+            android:contentDescription="@string/close"
             android:paddingLeft="@dimen/mini_text"
-            android:paddingRight="2dp"
+            android:paddingStart="@dimen/mini_text"
+            android:paddingRight="@dimen/marginSizeUltraSmall"
+            android:paddingEnd="@dimen/marginSizeUltraSmall"
             android:paddingTop="@dimen/mini_text"
             android:src="@drawable/close_red" />
 
@@ -32,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/small_text"
         android:layout_marginRight="@dimen/small_text"
-        android:text="Specify Medicines : "
+        android:text="@string/specify_medicines"
         android:textColor="@color/red"
         android:textSize="@dimen/medium_text" />
 
@@ -48,9 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/mini_text"
             android:button="@null"
+            android:drawableStart="@drawable/check_grey"
             android:drawableLeft="@drawable/check_grey"
             android:drawablePadding="@dimen/mini_text"
-            android:text="Order all medicines as per prescription."
+            android:text="@string/order_all_medicines"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/small_text" />
 
@@ -60,8 +64,9 @@
             android:layout_marginTop="@dimen/mini_text"
             android:button="@null"
             android:drawableLeft="@drawable/check_grey"
+            android:drawableStart="@drawable/check_grey"
             android:drawablePadding="@dimen/mini_text"
-            android:text="Not sure, Call me for details."
+            android:text="@string/not_sure"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/small_text" />
 
@@ -71,8 +76,9 @@
             android:layout_marginTop="@dimen/mini_text"
             android:button="@null"
             android:drawableLeft="@drawable/checkred"
+            android:drawableStart="@drawable/checkred"
             android:drawablePadding="@dimen/mini_text"
-            android:text="Let me specify the medicines."
+            android:text="@string/specify"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/small_text" />
 

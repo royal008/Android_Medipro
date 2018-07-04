@@ -2,6 +2,7 @@ package com.android.medipro.ui.fragments.healthInsurance3;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.medipro.R;
-import com.android.medipro.custom_utils.AyushMainAdapter;
 import com.android.medipro.ui.activity.main.MenuActivity;
+import com.android.medipro.ui.fragments.bookTest.BookTestAdapter;
 
 
 /**
@@ -21,7 +22,7 @@ public class HealthInsuranceFragment3 extends Fragment {
     View view;
     ImageView ivBack;
     ListView lvInsurance3;
-    AyushMainAdapter ayushMainAdapter;
+    BookTestAdapter bookTestAdapter;
 
 
     public HealthInsuranceFragment3() {
@@ -30,17 +31,17 @@ public class HealthInsuranceFragment3 extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_health_insurance_fragment3, container, false);
 
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
 
-        ayushMainAdapter = new AyushMainAdapter(getActivity());
+        bookTestAdapter = new BookTestAdapter(getActivity());
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         lvInsurance3=(ListView)view.findViewById(R.id.lv_insurance3_list);
-        lvInsurance3.setAdapter(ayushMainAdapter);
+        lvInsurance3.setAdapter(bookTestAdapter);
         onClick();
         return view;
     }

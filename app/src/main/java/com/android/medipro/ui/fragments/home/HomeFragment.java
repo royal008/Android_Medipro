@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     PopularProductAdapter popularProductAdapter;
     ArrayList alPopProductImage, alPopProductName, alPopProductOldPrice, alPopProductDiscount, alPopProductNewPrice;
     TextView tvViewAllProduct;
-    Context context;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -204,9 +204,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         gvPopularProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    fbc.setFragment(new MedicalRecordsFragment());
-                }
+//                if (position == 0) {
+//                    fbc.setFragment(new MedicalRecordsFragment());
+//                }
                 if (position == 1) {
                     fbc.setFragment(new AddReminderFragment());
                 }

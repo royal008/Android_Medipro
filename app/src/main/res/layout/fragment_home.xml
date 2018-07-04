@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -23,7 +23,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="@string/specify"
                 android:layout_marginLeft="@dimen/smaller_text"
+                android:layout_marginStart="@dimen/smaller_text"
                 android:src="@drawable/general_uploadprescription" />
 
             <LinearLayout
@@ -31,14 +33,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/very_small_text"
+                android:layout_marginStart="@dimen/very_small_text"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="Order with prescription"
+                    android:layout_gravity="start"
+                    android:text="@string/order_with_pres"
                     android:textColor="@color/red"
                     android:textSize="@dimen/medium_text"
                     android:textStyle="bold" />
@@ -46,8 +49,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:text="Quick Buy Upto 20% Discount!"
+                    android:layout_gravity="start"
+                    android:text="@string/quick_buy"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/smaller_text"
                     android:textStyle="bold" />
@@ -58,11 +61,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="@dimen/very_small_text"
+                android:layout_marginEnd="@dimen/very_small_text"
                 android:background="@drawable/blue_curved_rectangle"
                 android:gravity="center"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="UPLOAD"
+                android:text="@string/shopping_upload"
                 android:textColor="@color/white"
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
@@ -103,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/small_text"
+            android:layout_marginStart="@dimen/small_text"
             android:layout_marginTop="@dimen/small_text"
             android:scrollbars="none">
 
@@ -128,6 +133,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/margin"
                         android:layout_marginRight="@dimen/margin"
+                        android:contentDescription="@string/ayush"
                         android:layout_marginTop="@dimen/margin"
                         android:background="@color/white"
                         android:paddingLeft="@dimen/medium_text"
@@ -158,6 +164,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -168,6 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/margin"
+                        android:contentDescription="@string/pet_clinic"
                         android:layout_marginRight="@dimen/margin"
                         android:layout_marginTop="@dimen/margin"
                         android:background="@color/white"
@@ -199,6 +207,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -209,6 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/margin"
+                        android:contentDescription="@string/health_center"
                         android:layout_marginRight="@dimen/margin"
                         android:layout_marginTop="@dimen/margin"
                         android:background="@color/white"
@@ -240,6 +250,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -252,6 +263,7 @@
                         android:layout_marginLeft="@dimen/margin"
                         android:layout_marginRight="@dimen/margin"
                         android:layout_marginTop="@dimen/margin"
+                        android:contentDescription="@string/health_bank"
                         android:background="@color/white"
                         android:paddingLeft="@dimen/medium_text"
                         android:paddingRight="@dimen/medium_text"
@@ -281,6 +293,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -292,6 +305,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/margin"
                         android:layout_marginRight="@dimen/margin"
+                        android:contentDescription="@string/insurance"
                         android:layout_marginTop="@dimen/margin"
                         android:background="@color/white"
                         android:paddingLeft="@dimen/medium_text"
@@ -322,6 +336,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -337,6 +352,7 @@
                         android:background="@color/white"
                         android:paddingLeft="@dimen/medium_text"
                         android:paddingRight="@dimen/medium_text"
+                        android:contentDescription="@string/order_medicines"
                         android:paddingTop="@dimen/very_small_text"
                         android:src="@drawable/order_medicines" />
 
@@ -363,6 +379,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -378,6 +395,7 @@
                         android:background="@color/white"
                         android:paddingLeft="@dimen/medium_text"
                         android:paddingRight="@dimen/medium_text"
+                        android:contentDescription="@string/book_test"
                         android:paddingTop="@dimen/very_small_text"
                         android:src="@drawable/book_test" />
 
@@ -404,6 +422,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -419,6 +438,7 @@
                         android:background="@color/white"
                         android:paddingLeft="@dimen/medium_text"
                         android:paddingRight="@dimen/medium_text"
+                        android:contentDescription="@string/shopping"
                         android:paddingTop="@dimen/very_small_text"
                         android:src="@drawable/shopping" />
 
@@ -445,6 +465,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/very_small_text"
+                    android:layout_marginStart="@dimen/very_small_text"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -461,6 +482,7 @@
                         android:paddingLeft="@dimen/medium_text"
                         android:paddingRight="@dimen/medium_text"
                         android:paddingTop="@dimen/very_small_text"
+                        android:contentDescription="@string/health_bank"
                         android:src="@drawable/health_bank" />
 
                     <TextView
@@ -499,6 +521,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/large_text"
+                android:contentDescription="@string/book"
                 android:src="@drawable/general_bookappontment" />
 
             <TextView
@@ -517,7 +540,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_text"
-                    android:text="Book an Appointment"
+                    android:layout_marginStart="@dimen/small_text"
+                    android:text="@string/book_an_appointment"
                     android:textColor="@color/white"
                     android:textSize="@dimen/medium_text"
                     android:textStyle="bold" />
@@ -526,8 +550,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/small_text"
+                    android:layout_marginStart="@dimen/small_text"
                     android:layout_marginTop="3dp"
-                    android:text="Find doctors click, hospital etc..."
+                    android:text="@string/find"
                     android:textColor="@color/white"
                     android:textSize="@dimen/smaller_text" />
             </LinearLayout>
@@ -545,7 +570,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Popular Products"
+                android:text="@string/popular_products"
                 android:textColor="@color/dark_gray"
                 android:textSize="@dimen/medium_text"
                 android:textStyle="bold" />
@@ -555,10 +580,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
-                android:gravity="right"
+                android:gravity="end"
                 android:paddingBottom="@dimen/mini_text"
                 android:paddingTop="@dimen/mini_text"
-                android:text="View All"
+                android:text="@string/view_all"
                 android:textColor="@color/red"
                 android:textSize="@dimen/medium_text" />
         </LinearLayout>

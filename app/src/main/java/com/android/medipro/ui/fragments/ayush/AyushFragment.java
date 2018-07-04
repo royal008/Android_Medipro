@@ -2,6 +2,7 @@ package com.android.medipro.ui.fragments.ayush;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,7 +27,7 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
     ImageView ivBack,ivHomeopathy,ivAyurvedic,ivSiddha;
     FragmentBeanClass fbc;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_ayush, container, false);
@@ -55,12 +56,7 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
         ivHomeopathy.setOnClickListener(this);
         ivAyurvedic.setOnClickListener(this);
         ivSiddha.setOnClickListener(this);
-//        ivBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFragmentManager().popBackStack();
-//            }
-//        });
+
     }
 
     @Override
