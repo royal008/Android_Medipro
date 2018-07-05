@@ -1,7 +1,6 @@
 package com.android.medipro.ui.fragments.home;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -21,7 +20,6 @@ import com.android.medipro.custom_utils.ExpandableGridView;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
 import com.android.medipro.ui.fragments.insurance.InsuranceFragment;
-import com.android.medipro.ui.fragments.medicalRecords.MedicalRecordsFragment;
 import com.android.medipro.ui.fragments.orderMedicines.OrderMedicinesFragment;
 import com.android.medipro.ui.fragments.shopping.ShoppingFragment;
 import com.android.medipro.ui.fragments.uploadPrescription.UploadPrescription;
@@ -31,9 +29,8 @@ import com.android.medipro.ui.fragments.bookAppointment.BookAppointmentFragment;
 
 import com.android.medipro.ui.fragments.healthBank.HealthBankFragment;
 import com.android.medipro.ui.fragments.healthCenters.HealthCentersFragment;
-import com.android.medipro.ui.fragments.yoga.YogaFragment;
+import com.android.medipro.ui.fragments.centers.CentersFragment;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.viewpagerindicator.CirclePageIndicator;
@@ -231,7 +228,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.ll_book_test:
                 bundle.putString("keyValue","BOOK TEST");
-                fbc.setFragment(new YogaFragment());
+                fbc.setFragment(new CentersFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
 

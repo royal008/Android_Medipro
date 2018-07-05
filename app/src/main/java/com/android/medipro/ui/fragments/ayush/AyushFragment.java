@@ -16,8 +16,8 @@ import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
 
-import com.android.medipro.ui.fragments.homeopathy.HomeopathyFragment;
-
+import com.android.medipro.ui.fragments.ayushList.AyushListFragment;
+import com.android.medipro.ui.fragments.findDoctor.FindDoctorsFragment;
 
 
 /**
@@ -73,19 +73,19 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
             case R.id.iv_homeopathy:
                 Log.e("tag","image clicked");
                 bundle.putString("keyValue","HOMEOPATHY");
-                fbc.setFragment(new HomeopathyFragment());
+                fbc.setFragment(new FindDoctorsFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_ayurvedic:
                 Log.e("tag","image clicked");
                 bundle.putString("keyValue","AYURVEDIC");
-                fbc.setFragment(new HomeopathyFragment());
+                fbc.setFragment(new FindDoctorsFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_siddha:
                 Log.e("tag","image clicked");
                 bundle.putString("keyValue","SIDDHA");
-                fbc.setFragment(new HomeopathyFragment());
+                fbc.setFragment(new FindDoctorsFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
 

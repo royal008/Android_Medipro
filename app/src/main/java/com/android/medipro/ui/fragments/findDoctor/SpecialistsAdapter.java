@@ -1,4 +1,4 @@
-package com.android.medipro.custom_utils;
+package com.android.medipro.ui.fragments.findDoctor;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.medipro.R;
+import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.fragments.doctorDetails.DoctorDetailsFragment;
 
 
@@ -63,7 +64,7 @@ public class SpecialistsAdapter extends BaseAdapter {
         if (view == null) {
             viewHolder = new ViewHolder();
 
-            view = LayoutInflater.from(context).inflate(R.layout.cust_specialist_list, null);
+            view = LayoutInflater.from(context).inflate(R.layout.cust_doctor_list, null);
 //            viewHolder.ivSpecialist = (ImageView) view.findViewById(R.id.iv_specialist);
 //            viewHolder.ivSpecialist.setImageResource(specialistImg[position]);
 //            viewHolder.tvSpecialist = (TextView) view.findViewById(R.id.tv_specialist);

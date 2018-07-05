@@ -426,7 +426,7 @@
         android:layout_weight="0.8">
 
         <TextView
-            android:id="@+id/tv_book_doctor"
+            android:id="@+id/tv_call_doctor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -437,7 +437,5 @@
             android:textSize="@dimen/medium_text"
             android:textStyle="bold" />
     </LinearLayout>
+
 </LinearLayout>
-
-
-

@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.yoga.YogaFragment;
+import com.android.medipro.ui.fragments.centers.CentersFragment;
 
 
 /**
@@ -73,17 +73,17 @@ public class InsuranceFragment extends Fragment implements View.OnClickListener 
              break;
          case R.id.iv_health_insurance1:
              bundle.putString("keyValue","INSURANCE");
-             fbc.setFragment(new YogaFragment());
+             fbc.setFragment(new CentersFragment());
              fbc.getFragment().setArguments(bundle);
              break;
          case R.id.iv_health_insurance2:
              bundle.putString("keyValue","INSURANCE");
-             fbc.setFragment(new YogaFragment());
+             fbc.setFragment(new CentersFragment());
              fbc.getFragment().setArguments(bundle);
              break;
          case R.id.iv_health_insurance3:
              bundle.putString("keyValue","INSURANCE");
-             fbc.setFragment(new YogaFragment());
+             fbc.setFragment(new CentersFragment());
              fbc.getFragment().setArguments(bundle);
              break;
      }

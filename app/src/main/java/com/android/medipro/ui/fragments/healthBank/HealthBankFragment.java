@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.yoga.YogaFragment;
+import com.android.medipro.ui.fragments.centers.CentersFragment;
 
 
 /**
@@ -66,12 +66,12 @@ public class HealthBankFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.iv_stem_cell:
                 bundle.putString("keyValue","STEM CELL");
-                fbc.setFragment(new YogaFragment());
+                fbc.setFragment(new CentersFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_blood_bank:
                 bundle.putString("keyValue","BLOOD BANK");
-                fbc.setFragment(new YogaFragment());
+                fbc.setFragment(new CentersFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
         }

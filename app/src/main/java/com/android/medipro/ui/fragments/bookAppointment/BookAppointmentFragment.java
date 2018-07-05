@@ -1,8 +1,6 @@
 package com.android.medipro.ui.fragments.bookAppointment;
 
 
-import android.app.SearchManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +14,7 @@ import android.widget.ListView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.phychiartist.PhychiartistFragment;
+import com.android.medipro.ui.fragments.findDoctor.FindDoctorsFragment;
 
 
 /**
@@ -71,42 +69,42 @@ public class BookAppointmentFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position==0){
                     bundle.putString("keyValue","My Favorite Doctors");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==1){
                     bundle.putString("keyValue","Opthalmologist");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==2){
                     bundle.putString("keyValue","Dermtologists");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==3){
                     bundle.putString("keyValue","Cardiologist");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==4){
                     bundle.putString("keyValue","Gastroenterologists");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==5){
                     bundle.putString("keyValue","Phychiartist");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==6){
                     bundle.putString("keyValue","ENT Specialist");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
                 if(position==7){
                     bundle.putString("keyValue","Gynaecologists");
-                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.setFragment(new FindDoctorsFragment());
                     fbc.getFragment().setArguments(bundle);
                 }
             }
@@ -118,16 +116,7 @@ public class BookAppointmentFragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
-ivSearch.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Intent searchIntent = new Intent((Intent.ACTION_SEARCH));
-        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())) {
-            String query = searchIntent.getStringExtra(SearchManager.QUERY);
-            //doMySearch(query);
-        }
-    }
-});
+
     }
 
 }

@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.yoga.YogaFragment;
+import com.android.medipro.ui.fragments.centers.CentersFragment;
 
 
 
@@ -67,18 +67,18 @@ public class HealthCentersFragment extends Fragment implements View.OnClickListe
                 break;
             case R.id.iv_yoga:
                 bundle.putString("keyValue","YOGA");
-                fbc.setFragment(new YogaFragment());
+                fbc.setFragment(new CentersFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_gym:
                 bundle.putString("keyValue","GYM");
-                fbc.setFragment(new YogaFragment());
+                fbc.setFragment(new CentersFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
 
             case R.id.iv_spa:
                 bundle.putString("keyValue","SPA");
-                fbc.setFragment(new YogaFragment());
+                fbc.setFragment(new CentersFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
 

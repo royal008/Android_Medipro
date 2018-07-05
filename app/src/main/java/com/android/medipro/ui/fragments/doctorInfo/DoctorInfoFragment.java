@@ -49,7 +49,7 @@ public class DoctorInfoFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_doctor_info, container, false);
+        view= inflater.inflate(R.layout.fragment_doctor_details, container, false);
         mMapView=(MapView)view.findViewById(R.id.map);
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         ivShare=(ImageView)view.findViewById(R.id.iv_share);

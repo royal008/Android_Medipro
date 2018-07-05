@@ -1,9 +1,8 @@
-package com.android.medipro.ui.fragments.homeopathy;
+package com.android.medipro.ui.fragments.centers;
 
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,54 +11,48 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.medipro.R;
-import com.android.medipro.custom_utils.AyushMainAdapter;
 import com.android.medipro.ui.activity.main.MenuActivity;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeopathyFragment extends Fragment {
+public class CentersFragment extends Fragment {
     View view;
     ImageView ivBack;
-    ListView lvHomeopathy;
-    AyushMainAdapter ayushMainAdapter;
+    ListView lvYoga;
+   CentersAdapter centersAdapter;
    Bundle bundle;
-    TextView tvTitle;
-//    String keyHomeopathy,keyAyurvedic,keySiddha;
-//    String[] keyValues;
+   TextView tvTitleCenter;
 
+
+    public CentersFragment() {
+        // Required empty public constructor
+    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_homeopathy, container, false);
+        view= inflater.inflate(R.layout.fragment_centers, container, false);
 
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
-        ayushMainAdapter = new AyushMainAdapter(getActivity());
-        ivBack = (ImageView) view.findViewById(R.id.iv_back);
-        lvHomeopathy = (ListView) view.findViewById(R.id.lv_homepathy_list);
-        lvHomeopathy.setAdapter(ayushMainAdapter);
-        tvTitle = (TextView) view.findViewById(R.id.tv_title);
+
+        centersAdapter = new CentersAdapter(getActivity());
+        ivBack=(ImageView)view.findViewById(R.id.iv_back);
+        lvYoga=(ListView)view.findViewById(R.id.lv_yoga_list);
+        tvTitleCenter=(TextView)view.findViewById(R.id.tv_title_center);
+        lvYoga.setAdapter(centersAdapter);
 
         bundle = getArguments();
         if (bundle != null) {
             String key = bundle.getString("keyValue").toString();
-                     tvTitle.setText(key);
-            }
-
-
-            onClick();
-            return view;
-
+            tvTitleCenter.setText(key);
         }
-
+        onClick();
+        return view;
+    }
 
     private void onClick() {
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +62,5 @@ public class HomeopathyFragment extends Fragment {
             }
         });
     }
-    }
 
-
+}

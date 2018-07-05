@@ -1,4 +1,4 @@
-package com.android.medipro.ui.fragments.yoga;
+package com.android.medipro.ui.fragments.ayushList;
 
 
 import android.os.Bundle;
@@ -11,50 +11,50 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.medipro.R;
-import com.android.medipro.custom_utils.AyushMainAdapter;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.yoga.BookTestAdapter;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class YogaFragment extends Fragment {
+public class AyushListFragment extends Fragment {
     View view;
     ImageView ivBack;
-    ListView lvYoga;
-   BookTestAdapter bookTestAdapter;
+    ListView lvHomeopathy;
+    AyushListAdapter ayushMainAdapter;
    Bundle bundle;
-   TextView tvTitleCenter;
+    TextView tvTitle;
+//    String keyHomeopathy,keyAyurvedic,keySiddha;
+//    String[] keyValues;
 
-
-    public YogaFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.fragment_yoga, container, false);
+        // Inflate the layout for this fragment
+        view = inflater.inflate(R.layout.fragment_ayush_list, container, false);
 
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
-
-        bookTestAdapter = new BookTestAdapter(getActivity());
-        ivBack=(ImageView)view.findViewById(R.id.iv_back);
-        lvYoga=(ListView)view.findViewById(R.id.lv_yoga_list);
-        tvTitleCenter=(TextView)view.findViewById(R.id.tv_title_center);
-        lvYoga.setAdapter(bookTestAdapter);
+        ayushMainAdapter = new AyushListAdapter(getActivity());
+        ivBack = (ImageView) view.findViewById(R.id.iv_back);
+        lvHomeopathy = (ListView) view.findViewById(R.id.lv_homepathy_list);
+        lvHomeopathy.setAdapter(ayushMainAdapter);
+        tvTitle = (TextView) view.findViewById(R.id.tv_title);
 
         bundle = getArguments();
         if (bundle != null) {
             String key = bundle.getString("keyValue").toString();
-            tvTitleCenter.setText(key);
+                     tvTitle.setText(key);
+            }
+
+
+            onClick();
+            return view;
+
         }
-        onClick();
-        return view;
-    }
+
 
     private void onClick() {
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -64,5 +64,6 @@ public class YogaFragment extends Fragment {
             }
         });
     }
+    }
 
-}
+

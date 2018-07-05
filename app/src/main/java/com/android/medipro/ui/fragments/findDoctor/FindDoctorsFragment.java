@@ -1,4 +1,4 @@
-package com.android.medipro.ui.fragments.phychiartist;
+package com.android.medipro.ui.fragments.findDoctor;
 
 
 import android.os.Bundle;
@@ -11,14 +11,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.medipro.R;
-import com.android.medipro.custom_utils.SpecialistsAdapter;
 import com.android.medipro.ui.activity.main.MenuActivity;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PhychiartistFragment extends Fragment {
+public class FindDoctorsFragment extends Fragment {
     View view;
     ListView lvPhychiartist;
     SpecialistsAdapter specialistsAdapter;
@@ -26,7 +25,7 @@ public class PhychiartistFragment extends Fragment {
     Bundle bundle;
     TextView tvFindDoctorTitle;
 
-    public PhychiartistFragment() {
+    public FindDoctorsFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +34,7 @@ public class PhychiartistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       view = inflater.inflate(R.layout.fragment_phychiartist, container, false);
+       view = inflater.inflate(R.layout.fragment_find_doctors, container, false);
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
         specialistsAdapter=new SpecialistsAdapter(getActivity());
