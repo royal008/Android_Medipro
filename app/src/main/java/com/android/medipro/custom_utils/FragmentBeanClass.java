@@ -1,5 +1,6 @@
 package com.android.medipro.custom_utils;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import com.android.medipro.R;
 public class FragmentBeanClass {
     AppCompatActivity context;
     Fragment fragment;
+    Bundle bundle;
     int container;
     public FragmentBeanClass(AppCompatActivity context, int container)
     {
@@ -26,8 +28,8 @@ public class FragmentBeanClass {
     }
 
 
-    public void setFragment(Fragment fragment) {
 
+    public void setFragment(Fragment fragment) {
         this.fragment = fragment;
         FragmentManager fm=context.getSupportFragmentManager();
         FragmentTransaction ft=fm.beginTransaction();

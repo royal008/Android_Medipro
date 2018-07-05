@@ -12,9 +12,8 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.spa.SpaFragment;
 import com.android.medipro.ui.fragments.yoga.YogaFragment;
-import com.android.medipro.ui.fragments.gym.GymFragment;
+
 
 
 /**
@@ -24,6 +23,7 @@ public class HealthCentersFragment extends Fragment implements View.OnClickListe
     View view;
     ImageView ivBack,ivYoga,ivGym,ivSpa;
     FragmentBeanClass fbc;
+    Bundle bundle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class HealthCentersFragment extends Fragment implements View.OnClickListe
         ivYoga=(ImageView)view.findViewById(R.id.iv_yoga);
         ivGym=(ImageView)view.findViewById(R.id.iv_gym);
         ivSpa=(ImageView)view.findViewById(R.id.iv_spa);
+        bundle = new Bundle();
         onClick();
 
         return view;
@@ -56,12 +57,6 @@ public class HealthCentersFragment extends Fragment implements View.OnClickListe
         ivSpa.setOnClickListener(this);
         fbc=new FragmentBeanClass((AppCompatActivity) getActivity(),R.id.fl_container_main);
 
-//        ivBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFragmentManager().popBackStack();
-//            }
-//        });
     }
 
     @Override
@@ -71,14 +66,20 @@ public class HealthCentersFragment extends Fragment implements View.OnClickListe
                 getFragmentManager().popBackStack();
                 break;
             case R.id.iv_yoga:
+                bundle.putString("keyValue","YOGA");
                 fbc.setFragment(new YogaFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_gym:
-                fbc.setFragment(new GymFragment());
+                bundle.putString("keyValue","GYM");
+                fbc.setFragment(new YogaFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
 
             case R.id.iv_spa:
-                fbc.setFragment(new SpaFragment());
+                bundle.putString("keyValue","SPA");
+                fbc.setFragment(new YogaFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
 
         }

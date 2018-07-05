@@ -4,6 +4,7 @@ package com.android.medipro.ui.fragments.ayush;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,9 +15,9 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
+
 import com.android.medipro.ui.fragments.homeopathy.HomeopathyFragment;
-import com.android.medipro.ui.fragments.siddha.SiddhaFragment;
-import com.android.medipro.ui.fragments.ayurvedic.AyurvedicFragment;
+
 
 
 /**
@@ -26,6 +27,7 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
     View view;
     ImageView ivBack,ivHomeopathy,ivAyurvedic,ivSiddha;
     FragmentBeanClass fbc;
+    Bundle bundle;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +50,9 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
         ivSiddha=(ImageView)view.findViewById(R.id.iv_siddha);
         fbc=new FragmentBeanClass((AppCompatActivity) getActivity(),R.id.fl_container_main);
 
+        bundle = new Bundle();
+
+
         onClick();
         return view;
     }
@@ -67,17 +72,23 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.iv_homeopathy:
                 Log.e("tag","image clicked");
-               fbc.setFragment(new HomeopathyFragment());
+                bundle.putString("keyValue","HOMEOPATHY");
+                fbc.setFragment(new HomeopathyFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_ayurvedic:
                 Log.e("tag","image clicked");
-                fbc.setFragment(new AyurvedicFragment());
+                bundle.putString("keyValue","AYURVEDIC");
+                fbc.setFragment(new HomeopathyFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_siddha:
                 Log.e("tag","image clicked");
-                fbc.setFragment(new SiddhaFragment());
+                bundle.putString("keyValue","SIDDHA");
+                fbc.setFragment(new HomeopathyFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
-//
+
 
         }
 

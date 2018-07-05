@@ -12,9 +12,7 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.healthInsurance1.HealthInsuranceFragment1;
-import com.android.medipro.ui.fragments.healthInsurance2.HealthInsuranceFragment2;
-import com.android.medipro.ui.fragments.healthInsurance3.HealthInsuranceFragment3;
+import com.android.medipro.ui.fragments.yoga.YogaFragment;
 
 
 /**
@@ -24,6 +22,7 @@ public class InsuranceFragment extends Fragment implements View.OnClickListener 
     View view;
     ImageView ivBack,ivInsurance1,ivInsurance2,ivInsurance3;
     FragmentBeanClass fbc;
+    Bundle bundle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,6 +45,8 @@ public class InsuranceFragment extends Fragment implements View.OnClickListener 
         ivInsurance2=(ImageView)view.findViewById(R.id.iv_health_insurance2);
         ivInsurance3=(ImageView)view.findViewById(R.id.iv_health_insurance3);
         fbc=new FragmentBeanClass((AppCompatActivity) getActivity(),R.id.fl_container_main);
+
+        bundle = new Bundle();
 
         onClick();
 
@@ -71,13 +72,19 @@ public class InsuranceFragment extends Fragment implements View.OnClickListener 
              getFragmentManager().popBackStack();
              break;
          case R.id.iv_health_insurance1:
-             fbc.setFragment(new HealthInsuranceFragment1());
+             bundle.putString("keyValue","INSURANCE");
+             fbc.setFragment(new YogaFragment());
+             fbc.getFragment().setArguments(bundle);
              break;
          case R.id.iv_health_insurance2:
-             fbc.setFragment(new HealthInsuranceFragment2());
+             bundle.putString("keyValue","INSURANCE");
+             fbc.setFragment(new YogaFragment());
+             fbc.getFragment().setArguments(bundle);
              break;
          case R.id.iv_health_insurance3:
-             fbc.setFragment(new HealthInsuranceFragment3());
+             bundle.putString("keyValue","INSURANCE");
+             fbc.setFragment(new YogaFragment());
+             fbc.getFragment().setArguments(bundle);
              break;
      }
     }

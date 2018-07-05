@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.fragments.InviteToEarn.InviteToEarnFragment;
-import com.android.medipro.ui.fragments.healthInsurance2.HealthInsuranceFragment2;
+
 import com.android.medipro.ui.fragments.home.HomeFragment;
 import com.android.medipro.ui.fragments.medicalRecords.MedicalRecordsFragment;
 

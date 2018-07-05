@@ -16,13 +16,6 @@ import android.widget.ListView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.cardiologist.CardiologistFragment;
-import com.android.medipro.ui.fragments.dermatologists.DermatologistsFragment;
-import com.android.medipro.ui.fragments.ENTSpecialist.ENTSpecialistFragment;
-import com.android.medipro.ui.fragments.favoriteDoctor.FavoriteDoctorsFragment;
-import com.android.medipro.ui.fragments.gastroenterologists.GastroenterologistsFragment;
-import com.android.medipro.ui.fragments.gynaecologists.GynaecologistsFragment;
-import com.android.medipro.ui.fragments.opthalmologist.OpthalmologistFragment;
 import com.android.medipro.ui.fragments.phychiartist.PhychiartistFragment;
 
 
@@ -39,6 +32,7 @@ public class BookAppointmentFragment extends Fragment {
             "Phychiartist", "Ear-Nose-Throat(ENT) Specialist","Gynaecologists"};
     FragmentBeanClass fbc;
     ImageView ivBack,ivSearch;
+    Bundle bundle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,6 +59,7 @@ public class BookAppointmentFragment extends Fragment {
         findDoctorsAdapter=new FindDoctorsAdapter(getActivity(),specialistImgs,specialistNames);
         lvFindDoctors=(ListView)view.findViewById(R.id.lv_find_doctors);
         lvFindDoctors.setAdapter(findDoctorsAdapter);
+        bundle = new Bundle();
 
         onClick();
         return view;
@@ -75,28 +70,44 @@ public class BookAppointmentFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position==0){
-                    fbc.setFragment(new FavoriteDoctorsFragment());
+                    bundle.putString("keyValue","My Favorite Doctors");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==1){
-                    fbc.setFragment(new OpthalmologistFragment());
+                    bundle.putString("keyValue","Opthalmologist");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==2){
-                    fbc.setFragment(new DermatologistsFragment());
+                    bundle.putString("keyValue","Dermtologists");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==3){
-                    fbc.setFragment(new CardiologistFragment());
+                    bundle.putString("keyValue","Cardiologist");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==4){
-                    fbc.setFragment(new GastroenterologistsFragment());
+                    bundle.putString("keyValue","Gastroenterologists");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==5){
+                    bundle.putString("keyValue","Phychiartist");
                     fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==6){
-                    fbc.setFragment(new ENTSpecialistFragment());
+                    bundle.putString("keyValue","ENT Specialist");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
                 if(position==7){
-                    fbc.setFragment(new GynaecologistsFragment());
+                    bundle.putString("keyValue","Gynaecologists");
+                    fbc.setFragment(new PhychiartistFragment());
+                    fbc.getFragment().setArguments(bundle);
                 }
             }
         });

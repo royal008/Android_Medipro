@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.SpecialistsAdapter;
@@ -22,6 +23,8 @@ public class PhychiartistFragment extends Fragment {
     ListView lvPhychiartist;
     SpecialistsAdapter specialistsAdapter;
     ImageView ivBack;
+    Bundle bundle;
+    TextView tvFindDoctorTitle;
 
     public PhychiartistFragment() {
         // Required empty public constructor
@@ -37,9 +40,15 @@ public class PhychiartistFragment extends Fragment {
 
         specialistsAdapter=new SpecialistsAdapter(getActivity());
         lvPhychiartist=(ListView)view.findViewById(R.id.lv_phychiartist_list);
+        tvFindDoctorTitle = (TextView)view.findViewById(R.id.tv_find_doc_title);
         lvPhychiartist.setAdapter(specialistsAdapter);
 
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
+        bundle = getArguments();
+        if (bundle != null) {
+            String key = bundle.getString("keyValue").toString();
+            tvFindDoctorTitle.setText(key);
+        }
 
         onClick();
 

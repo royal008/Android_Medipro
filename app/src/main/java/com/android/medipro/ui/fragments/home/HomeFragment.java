@@ -28,9 +28,10 @@ import com.android.medipro.ui.fragments.uploadPrescription.UploadPrescription;
 import com.android.medipro.ui.fragments.addreminder.AddReminderFragment;
 import com.android.medipro.ui.fragments.ayush.AyushFragment;
 import com.android.medipro.ui.fragments.bookAppointment.BookAppointmentFragment;
-import com.android.medipro.ui.fragments.bookTest.BookTestFragment;
+
 import com.android.medipro.ui.fragments.healthBank.HealthBankFragment;
 import com.android.medipro.ui.fragments.healthCenters.HealthCentersFragment;
+import com.android.medipro.ui.fragments.yoga.YogaFragment;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -55,6 +56,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private static int NUM_PAGES = 0;
     private ArrayList<ImageModel> imageModelArrayList;
     CirclePageIndicator indicator;
+    Bundle bundle;
     int[] myImageList = {R.drawable.mainmenu, R.drawable.gym, R.drawable.map, R.drawable.spa, R.drawable.yoga};
 
     PopularProductAdapter popularProductAdapter;
@@ -104,6 +106,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         alPopProductNewPrice = new ArrayList();
         imageModelArrayList = new ArrayList<>();
         imageModelArrayList = populateList();
+
+        bundle = new Bundle();
 
         fbc = new FragmentBeanClass((AppCompatActivity) getActivity(), R.id.fl_container_main);
 
@@ -226,7 +230,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.ll_book_test:
-                fbc.setFragment(new BookTestFragment());
+                bundle.putString("keyValue","BOOK TEST");
+                fbc.setFragment(new YogaFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
 
             case R.id.ll_shopping:

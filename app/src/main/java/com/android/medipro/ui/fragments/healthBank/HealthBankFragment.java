@@ -12,8 +12,7 @@ import android.widget.ImageView;
 import com.android.medipro.R;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.stemCell.StemCellFragment;
-import com.android.medipro.ui.fragments.bloodBank.BloodBankFragment;
+import com.android.medipro.ui.fragments.yoga.YogaFragment;
 
 
 /**
@@ -23,6 +22,7 @@ public class HealthBankFragment extends Fragment implements View.OnClickListener
     View view;
     ImageView ivBack,ivStemCell,ivBloodBank;
     FragmentBeanClass fbc;
+    Bundle bundle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +45,8 @@ public class HealthBankFragment extends Fragment implements View.OnClickListener
         ivBloodBank=(ImageView)view.findViewById(R.id.iv_blood_bank) ;
         fbc=new FragmentBeanClass((AppCompatActivity) getActivity(),R.id.fl_container_main);
 
+        bundle = new Bundle();
+
         onClick();
 
         return view;
@@ -53,12 +55,7 @@ public class HealthBankFragment extends Fragment implements View.OnClickListener
         ivBack.setOnClickListener(this);
         ivBloodBank.setOnClickListener(this);
         ivStemCell.setOnClickListener(this);
-//        ivBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFragmentManager().popBackStack();
-//            }
-//        });
+//
     }
 
     @Override
@@ -68,10 +65,14 @@ public class HealthBankFragment extends Fragment implements View.OnClickListener
                 getFragmentManager().popBackStack();
                 break;
             case R.id.iv_stem_cell:
-                fbc.setFragment(new StemCellFragment());
+                bundle.putString("keyValue","STEM CELL");
+                fbc.setFragment(new YogaFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_blood_bank:
-                fbc.setFragment(new BloodBankFragment());
+                bundle.putString("keyValue","BLOOD BANK");
+                fbc.setFragment(new YogaFragment());
+                fbc.getFragment().setArguments(bundle);
                 break;
         }
 
