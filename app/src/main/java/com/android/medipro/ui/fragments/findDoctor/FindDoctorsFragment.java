@@ -3,6 +3,7 @@ package com.android.medipro.ui.fragments.findDoctor;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class FindDoctorsFragment extends Fragment {
     ImageView ivBack;
     Bundle bundle;
     TextView tvFindDoctorTitle;
+    String keyVal;
 
     public FindDoctorsFragment() {
         // Required empty public constructor
@@ -37,18 +39,19 @@ public class FindDoctorsFragment extends Fragment {
        view = inflater.inflate(R.layout.fragment_find_doctors, container, false);
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
-        specialistsAdapter=new SpecialistsAdapter(getActivity());
         lvPhychiartist=(ListView)view.findViewById(R.id.lv_phychiartist_list);
         tvFindDoctorTitle = (TextView)view.findViewById(R.id.tv_find_doc_title);
-        lvPhychiartist.setAdapter(specialistsAdapter);
+
 
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         bundle = getArguments();
         if (bundle != null) {
-            String key = bundle.getString("keyValue").toString();
-            tvFindDoctorTitle.setText(key);
+            keyVal = bundle.getString("keyValue").toString();
+            Log.e("value",keyVal);
+            tvFindDoctorTitle.setText(keyVal);
         }
-
+        specialistsAdapter=new SpecialistsAdapter(getActivity(),keyVal);
+        lvPhychiartist.setAdapter(specialistsAdapter);
         onClick();
 
         return view;

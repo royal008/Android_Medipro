@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.android.medipro.R;
@@ -34,6 +35,8 @@ public class DoctorDetailsFragment extends Fragment implements OnMapReadyCallbac
     LatLng dip = new LatLng(12.555, 77.45);
     GoogleMap myMap;
     MapView mMapView;
+    Bundle bundle;
+    TextView tvPlaceName;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,12 +45,11 @@ public class DoctorDetailsFragment extends Fragment implements OnMapReadyCallbac
         MenuActivity.llTopBar.setVisibility(View.GONE);
         mMapView=(MapView)view.findViewById(R.id.map);
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
+        tvPlaceName=(TextView)view.findViewById(R.id.tv_place_name);
         ivShare=(ImageView)view.findViewById(R.id.iv_share);
-       // tvCallDoctor=(TextView)view.findViewById(R.id.tv_call_doctor);
-        try {
-           // rootView = inflater.inflate(R.layout.fragment, container, false);
+       try {
+
             MapsInitializer.initialize(this.getActivity());
-          //  mMapView = (MapView)View.findViewById(R.id.map);
             mMapView.onCreate(savedInstanceState);
             mMapView.getMapAsync(this);
         }
@@ -55,9 +57,13 @@ public class DoctorDetailsFragment extends Fragment implements OnMapReadyCallbac
             Log.e("TAG", "Inflate exception");
         }
 
+        bundle = getArguments();
+        if(bundle != null){
+          String  value = bundle.getString("keyValue");
+            tvPlaceName.setText(value);
+        }
+
         onClick();
-//        SupportMapFragment map = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.fragment);
-//        map.getMapAsync(this);
 
         return view;
 
@@ -105,18 +111,7 @@ public class DoctorDetailsFragment extends Fragment implements OnMapReadyCallbac
     private void onClick() {
         ivBack.setOnClickListener(this);
         ivShare.setOnClickListener(this);
-       // tvCallDoctor.setOnClickListener(this);
-//        ivBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFragmentManager().popBackStack();
-//            }
-//        });
     }
-
-
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){

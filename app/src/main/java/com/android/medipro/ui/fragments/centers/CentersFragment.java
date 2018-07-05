@@ -24,6 +24,7 @@ public class CentersFragment extends Fragment {
    CentersAdapter centersAdapter;
    Bundle bundle;
    TextView tvTitleCenter;
+   String key;
 
 
     public CentersFragment() {
@@ -39,17 +40,18 @@ public class CentersFragment extends Fragment {
         MenuActivity.llTopBar.setVisibility(View.GONE);
 
 
-        centersAdapter = new CentersAdapter(getActivity());
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         lvYoga=(ListView)view.findViewById(R.id.lv_yoga_list);
         tvTitleCenter=(TextView)view.findViewById(R.id.tv_title_center);
-        lvYoga.setAdapter(centersAdapter);
 
         bundle = getArguments();
         if (bundle != null) {
-            String key = bundle.getString("keyValue").toString();
+            key = bundle.getString("keyValue").toString();
             tvTitleCenter.setText(key);
         }
+
+        centersAdapter = new CentersAdapter(getActivity(),key);
+        lvYoga.setAdapter(centersAdapter);
         onClick();
         return view;
     }

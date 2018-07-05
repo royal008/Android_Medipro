@@ -73,19 +73,19 @@ public class AyushFragment extends Fragment implements View.OnClickListener {
             case R.id.iv_homeopathy:
                 Log.e("tag","image clicked");
                 bundle.putString("keyValue","HOMEOPATHY");
-                fbc.setFragment(new FindDoctorsFragment());
+                fbc.setFragment(new AyushListFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_ayurvedic:
                 Log.e("tag","image clicked");
                 bundle.putString("keyValue","AYURVEDIC");
-                fbc.setFragment(new FindDoctorsFragment());
+                fbc.setFragment(new AyushListFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
             case R.id.iv_siddha:
                 Log.e("tag","image clicked");
                 bundle.putString("keyValue","SIDDHA");
-                fbc.setFragment(new FindDoctorsFragment());
+                fbc.setFragment(new AyushListFragment());
                 fbc.getFragment().setArguments(bundle);
                 break;
 

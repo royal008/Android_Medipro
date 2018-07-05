@@ -11,16 +11,14 @@ import android.widget.TextView;
 import com.android.medipro.R;
 
 
-/**
- * Created by Deepa on 04-12-2017.
- */
 
-public class FindDoctorsAdapter extends BaseAdapter {
+
+public class BookAppointmentAdapter extends BaseAdapter {
 
     Context context;
     int[] specialistImg;
     String[] specialistsName;
-    public FindDoctorsAdapter(Context context, int[] specialistImg, String[] specialistsName){
+    public BookAppointmentAdapter(Context context, int[] specialistImg, String[] specialistsName){
         this.context=context;
         this.specialistImg=specialistImg;
         this.specialistsName=specialistsName;

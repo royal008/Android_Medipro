@@ -23,7 +23,7 @@ import com.android.medipro.ui.fragments.findDoctor.FindDoctorsFragment;
 public class BookAppointmentFragment extends Fragment {
     View view;
     ListView lvFindDoctors;
-    FindDoctorsAdapter findDoctorsAdapter;
+    BookAppointmentAdapter findDoctorsAdapter;
     int specialistImgs[]={R.drawable.myfavoritedoctors,R.drawable.ayurvedic_specialist,R.drawable.dermatologists,R.drawable.cardiologist,
     R.drawable.chestspecialists,R.drawable.cosmeticsurgeons,R.drawable.dentists,R.drawable.diabetologists};
     String specialistNames[]={"My Favorite Doctors","Opthalmologist","Dermatologists","Cardiologist","Gastroenterologists",
@@ -54,7 +54,7 @@ public class BookAppointmentFragment extends Fragment {
         fbc=new FragmentBeanClass((AppCompatActivity) getActivity(),R.id.fl_container_main);
         ivBack=(ImageView)view.findViewById(R.id.iv_back);
         ivSearch=(ImageView)view.findViewById(R.id.iv_search);
-        findDoctorsAdapter=new FindDoctorsAdapter(getActivity(),specialistImgs,specialistNames);
+        findDoctorsAdapter=new BookAppointmentAdapter(getActivity(),specialistImgs,specialistNames);
         lvFindDoctors=(ListView)view.findViewById(R.id.lv_find_doctors);
         lvFindDoctors.setAdapter(findDoctorsAdapter);
         bundle = new Bundle();
