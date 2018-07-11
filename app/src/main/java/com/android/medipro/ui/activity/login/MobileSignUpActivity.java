@@ -1,11 +1,13 @@
 package com.android.medipro.ui.activity.login;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -14,13 +16,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.medipro.R;
 import com.android.medipro.ui.activity.main.MenuActivity;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MobileSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvPhone;
    // ImageView ivModeEdit;
     Button btnContinue;
     EditText etOTPFirst,etOPTSecond,etOTPThird,etOPTFourth,etOTPFifth,etOTPSixth;
-
+     String otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +51,8 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
         etOTPSixth.addTextChangedListener(OTPTextWatcher);
 
 
+
+        verifyOtp();
        // tvTimer();
         onClick();
 
@@ -63,6 +77,9 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
             String FourthOTP = etOPTFourth.getText().toString().trim();
             String FifthOTP = etOTPFifth.getText().toString().trim();
             String SixthOTP = etOTPSixth.getText().toString().trim();
+
+
+
 
             if(FirstOTP.length()==1)
                 {
@@ -90,6 +107,16 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
                     btnContinue.setBackgroundColor(getResources().getColor(R.color.button_color_main));
 
                 }
+            StringBuilder sb = new StringBuilder(6);
+            sb.append(FirstOTP);
+            sb.append(SecOTP);
+            sb.append(ThirdtOTP);
+            sb.append(FourthOTP);
+            sb.append(FifthOTP);
+            sb.append(SixthOTP);
+
+            otp = String.valueOf(sb);
+            Log.e("otp",otp);
         }
 
 
@@ -136,8 +163,57 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
 //                Intent i = new Intent(MobileSignUpActivity.this,MainActivity.class);
 //                startActivity(i);
             case R.id.btn_continue_signup:
-                 Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
+                Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
                  startActivity(intent);
         }
+    }
+
+    private void verifyOtp() {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://13.232.102.36/api/v1/user/otp/verify";
+
+        StringRequest sr = new StringRequest(Request.Method.POST, url,
+
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+
+                        Log.e("response", s);
+
+                        try {
+
+                            JSONObject object = new JSONObject(s);
+                            Boolean success = object.getBoolean("success");
+                            String message = object.getString("message");
+
+                            if (success) {
+                                Log.e("success", String.valueOf(success));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("Messages Flag", "" + e.toString());
+                        }
+                    }
+                },
+                new com.android.volley.Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Log.e("error", "error: " + error.toString());
+                    }
+                }) {
+            @SuppressLint("LongLogTag")
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("phone", tvPhone.getText().toString());
+                params.put("otp", "otp");
+                return params;
+            }
+
+        };
+        queue.add(sr);
+
     }
 }

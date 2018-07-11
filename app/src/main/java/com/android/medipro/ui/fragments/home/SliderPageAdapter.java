@@ -1,33 +1,29 @@
 package com.android.medipro.ui.fragments.home;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import com.android.medipro.R;
-import com.android.medipro.ui.fragments.home.ImageModel;
 
 import java.util.ArrayList;
 
-/**
- * Created by Parsania Hardik on 23/04/2016.
- */
-public class SlidingImage_Adapter extends PagerAdapter {
+public class SliderPageAdapter extends PagerAdapter {
 
-
-    private ArrayList<ImageModel> imageModelArrayList;
-    private LayoutInflater inflater;
     private Context context;
+    private ArrayList<String> imageModelArrayList;
+    private LayoutInflater inflater;
 
-
-    public SlidingImage_Adapter(Context context, ArrayList<ImageModel> imageModelArrayList) {
+    public SliderPageAdapter(Context context, ArrayList<String> imageModelArrayList) {
         this.context = context;
         this.imageModelArrayList = imageModelArrayList;
-        inflater = LayoutInflater.from(context);
     }
+
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
@@ -36,6 +32,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
 
     @Override
     public int getCount() {
+
         return imageModelArrayList.size();
     }
 
@@ -44,11 +41,8 @@ public class SlidingImage_Adapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.slidingimages_layout, view, false);
 
         assert imageLayout != null;
-        final ImageView imageView = (ImageView) imageLayout
-                .findViewById(R.id.image);
-
-
-        imageView.setImageResource(imageModelArrayList.get(position).getImage_drawable());
+        final ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
+    imageView.setImageBitmap(BitmapFactory.decodeFile(imageModelArrayList.get(position)));
 
         view.addView(imageLayout, 0);
 
@@ -68,6 +62,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
     public Parcelable saveState() {
         return null;
     }
-
-
 }
+
+
+

@@ -75,17 +75,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="@dimen/small_text">
+            android:layout_height="200dp">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="@dimen/small_text"
-                android:layout_marginRight="@dimen/small_text" />
-
+                android:layout_alignParentTop="true" />
 
             <com.viewpagerindicator.CirclePageIndicator
                 android:id="@+id/indicator"
@@ -99,8 +95,9 @@
                 app:fillColor="#df0623"
                 app:pageColor="#fff"
                 app:snap="false" />
-
         </RelativeLayout>
+
+
 
 
         <HorizontalScrollView

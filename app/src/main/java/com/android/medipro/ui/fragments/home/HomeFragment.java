@@ -1,16 +1,23 @@
 package com.android.medipro.ui.fragments.home;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +26,7 @@ import com.android.medipro.R;
 import com.android.medipro.custom_utils.ExpandableGridView;
 import com.android.medipro.custom_utils.FragmentBeanClass;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.insurance.InsuranceFragment;
+
 import com.android.medipro.ui.fragments.orderMedicines.OrderMedicinesFragment;
 import com.android.medipro.ui.fragments.shopping.ShoppingFragment;
 import com.android.medipro.ui.fragments.uploadPrescription.UploadPrescription;
@@ -30,31 +37,39 @@ import com.android.medipro.ui.fragments.bookAppointment.BookAppointmentFragment;
 import com.android.medipro.ui.fragments.healthBank.HealthBankFragment;
 import com.android.medipro.ui.fragments.healthCenters.HealthCentersFragment;
 import com.android.medipro.ui.fragments.centers.CentersFragment;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.viewpagerindicator.CirclePageIndicator;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class HomeFragment extends Fragment implements View.OnClickListener {
     View view;
     AdView adView;
     FragmentBeanClass fbc;
+    RequestQueue mQueue;
     LinearLayout llUploadPrescription, llBookAppointment, llMenu, llOrderMedicines, llBookTest, llShopping, llAyush, llInsurance, llHealthCenter, llHealthBank;
     ExpandableGridView gvPopularProducts;
+
+    Bundle bundle;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private ArrayList<ImageModel> imageModelArrayList;
-    CirclePageIndicator indicator;
-    Bundle bundle;
-    int[] myImageList = {R.drawable.mainmenu, R.drawable.gym, R.drawable.map, R.drawable.spa, R.drawable.yoga};
+    SliderPageAdapter sliderPagerAdapter;
+    ArrayList<String> slider_image_list;
+
+
 
     PopularProductAdapter popularProductAdapter;
     ArrayList alPopProductImage, alPopProductName, alPopProductOldPrice, alPopProductDiscount, alPopProductNewPrice;
@@ -66,6 +81,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
+
 
         MenuActivity.llTopBar.setVisibility(View.VISIBLE);
         MenuActivity.llTopBar.setBackgroundResource(R.color.red);
@@ -89,8 +105,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         llInsurance = (LinearLayout) view.findViewById(R.id.ll_insurance);
         llHealthCenter = (LinearLayout) view.findViewById(R.id.ll_health_center);
         llHealthBank = (LinearLayout) view.findViewById(R.id.ll_health_bank);
-        mPager = (ViewPager) view.findViewById(R.id.pager);
-        indicator = (CirclePageIndicator) view.findViewById(R.id.indicator);
+
         adView = (AdView) view.findViewById(R.id.adView);
 
 
@@ -101,8 +116,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         alPopProductOldPrice = new ArrayList();
         alPopProductDiscount = new ArrayList();
         alPopProductNewPrice = new ArrayList();
-        imageModelArrayList = new ArrayList<>();
-        imageModelArrayList = populateList();
+        slider_image_list = new ArrayList<>();
 
         bundle = new Bundle();
 
@@ -120,32 +134,78 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         gvPopularProducts.setAdapter(popularProductAdapter);
         gvPopularProducts.setExpanded(true);
 
+          imagebanner();
+        // method for initialisation
         init();
         onClick();
         return view;
     }
 
-    private ArrayList<ImageModel> populateList() {
+    private void imagebanner(){
+       mQueue = Volley.newRequestQueue(getActivity());
+       String url = "http://13.232.102.36/api/v1/resources/banner";
 
-        ArrayList<ImageModel> list = new ArrayList<>();
+       StringRequest sr = new StringRequest(Request.Method.GET, url,
+               new com.android.volley.Response.Listener<String>() {
+                   @Override
+                   public void onResponse(String response) {
+                       Log.e("Response",response);
+                       try {
 
-        for (int i = 0; i < 5; i++) {
-            ImageModel imageModel = new ImageModel();
-            imageModel.setImage_drawable(myImageList[i]);
-            list.add(imageModel);
-        }
+                           JSONObject object = new JSONObject(response);
+                           Boolean success = object.getBoolean("success");
+                           Log.e("success", String.valueOf(success));
 
-        return list;
-    }
+                           String message = object.getString("message");
+                           Log.e("msg",message);
+
+                           JSONArray data = object.getJSONArray("data");
+                           for(int i=0;i<data.length();i++){
+                               //   data list = new data();
+                               JSONObject obj = data.getJSONObject(i);
+                               String name = obj.getString("name");
+                               Log.e("name",name);
+                               String url = obj.getString("url");
+                               Log.e("url",url);
+                               slider_image_list.add(url);
+                               Log.e("length", String.valueOf(slider_image_list.size()));
+
+                           }
+
+
+                       } catch (Exception e) {
+                           e.printStackTrace();
+                           Log.e("Messages Frag", "" + e.toString());
+                       }
+
+                   }
+               }, new com.android.volley.Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+
+           }
+       });
+
+       RequestQueue queue = Volley.newRequestQueue(getActivity());
+       queue.add(sr);
+
+   }
 
     private void init() {
-        mPager.setAdapter(new SlidingImage_Adapter(getActivity(), imageModelArrayList));
+
+        mPager = (ViewPager) view.findViewById(R.id.pager);
+        mPager.setAdapter(new SliderPageAdapter(getActivity(), slider_image_list));
+
+        CirclePageIndicator indicator = (CirclePageIndicator)view.findViewById(R.id.indicator);
+
         indicator.setViewPager(mPager);
+
         final float density = getResources().getDisplayMetrics().density;
+
 //Set circle indicator radius
         indicator.setRadius(5 * density);
 
-        NUM_PAGES = imageModelArrayList.size();
+        NUM_PAGES = slider_image_list.size();
 
         // Auto start of viewpager
         final Handler handler = new Handler();
@@ -163,7 +223,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             public void run() {
                 handler.post(Update);
             }
-        }, 0, 3000);
+        }, 3000, 3000);
 
         // Pager listener over indicator
         indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -181,13 +241,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onPageScrollStateChanged(int pos) {
-
+                if (pos == mPager.SCROLL_STATE_IDLE) {
+                    int pageCount = slider_image_list.size();
+                    if (currentPage == 0) {
+                        mPager.setCurrentItem(pageCount - 1, false);
+                    } else if (currentPage == pageCount - 1) {
+                        mPager.setCurrentItem(0, false);
+                    }
+                }
             }
         });
 
+
     }
-
-
     private void onClick() {
 
         llOrderMedicines.setOnClickListener(this);
@@ -240,7 +306,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 fbc.setFragment(new AyushFragment());
                 break;
             case R.id.ll_insurance:
-                fbc.setFragment(new InsuranceFragment());
+                bundle.putString("keyValue","INSURANCE");
+                fbc.setFragment(new CentersFragment());
+                fbc.getFragment().setArguments(bundle);
+              //  fbc.setFragment(new InsuranceFragment());
                 break;
             case R.id.ll_health_center:
                 fbc.setFragment(new HealthCentersFragment());
