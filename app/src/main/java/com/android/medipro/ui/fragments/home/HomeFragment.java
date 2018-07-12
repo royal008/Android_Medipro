@@ -63,9 +63,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ExpandableGridView gvPopularProducts;
 
     Bundle bundle;
-    private static ViewPager mPager;
-    private static int currentPage = 0;
-    private static int NUM_PAGES = 0;
+    private ViewPager vp_slider;
+    private LinearLayout ll_dots;
+    private TextView[] dots;
+    int page_position = 0;
     SliderPageAdapter sliderPagerAdapter;
     ArrayList<String> slider_image_list;
 
@@ -93,7 +94,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         MenuActivity.ivSearch.setVisibility(View.VISIBLE);
         MenuActivity.ivCart.setVisibility(View.VISIBLE);
 
-        llUploadPrescription = (LinearLayout) view.findViewById(R.id.ll_upload_prescription);
+       // llUploadPrescription = (LinearLayout) view.findViewById(R.id.ll_upload_prescription);
         llBookAppointment = (LinearLayout) view.findViewById(R.id.ll_book_appointment);
         llMenu = (LinearLayout) view.findViewById(R.id.ll_menu);
         gvPopularProducts = (ExpandableGridView) view.findViewById(R.id.gv_popular_products);
@@ -122,7 +123,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         fbc = new FragmentBeanClass((AppCompatActivity) getActivity(), R.id.fl_container_main);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i <4; i++) {
             alPopProductImage.add(R.drawable.documents);
             alPopProductName.add("Products Name");
             alPopProductOldPrice.add("₹349.0");
@@ -134,12 +135,39 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         gvPopularProducts.setAdapter(popularProductAdapter);
         gvPopularProducts.setExpanded(true);
 
-          imagebanner();
+
         // method for initialisation
         init();
+
+// method for adding indicators
+        addBottomDots(0);
+
+        final Handler handler = new Handler();
+
+        final Runnable update = new Runnable() {
+            public void run() {
+                if (page_position == slider_image_list.size()) {
+                    page_position = 0;
+                } else {
+                    page_position = page_position + 1;
+                }
+                vp_slider.setCurrentItem(page_position, true);
+            }
+        };
+
+        new Timer().schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        }, 100, 5000);
+
         onClick();
         return view;
     }
+
+
 
     private void imagebanner(){
        mQueue = Volley.newRequestQueue(getActivity());
@@ -168,15 +196,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                String url = obj.getString("url");
                                Log.e("url",url);
                                slider_image_list.add(url);
-                               Log.e("length", String.valueOf(slider_image_list.size()));
-
                            }
+                           Log.e("length", String.valueOf(slider_image_list.size()));
 
-
+                         sliderPagerAdapter.notifyDataSetChanged();
                        } catch (Exception e) {
                            e.printStackTrace();
                            Log.e("Messages Frag", "" + e.toString());
                        }
+
 
                    }
                }, new com.android.volley.Response.ErrorListener() {
@@ -193,67 +221,64 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void init() {
 
-        mPager = (ViewPager) view.findViewById(R.id.pager);
-        mPager.setAdapter(new SliderPageAdapter(getActivity(), slider_image_list));
 
-        CirclePageIndicator indicator = (CirclePageIndicator)view.findViewById(R.id.indicator);
+        vp_slider = (ViewPager) view.findViewById(R.id.vp_slider);
+        ll_dots = (LinearLayout) view.findViewById(R.id.ll_dots);
 
-        indicator.setViewPager(mPager);
 
-        final float density = getResources().getDisplayMetrics().density;
 
-//Set circle indicator radius
-        indicator.setRadius(5 * density);
 
-        NUM_PAGES = slider_image_list.size();
 
-        // Auto start of viewpager
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == NUM_PAGES) {
-                    currentPage = 0;
-                }
-                mPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        Timer swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
+      imagebanner();
+
+
+        sliderPagerAdapter = new SliderPageAdapter(getActivity(), slider_image_list);
+        vp_slider.setAdapter(sliderPagerAdapter);
+
+        vp_slider.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 3000, 3000);
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-        // Pager listener over indicator
-        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            }
 
             @Override
             public void onPageSelected(int position) {
-                currentPage = position;
-
+                addBottomDots(position);
             }
 
             @Override
-            public void onPageScrolled(int pos, float arg1, int arg2) {
+            public void onPageScrollStateChanged(int state) {
 
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int pos) {
-                if (pos == mPager.SCROLL_STATE_IDLE) {
-                    int pageCount = slider_image_list.size();
-                    if (currentPage == 0) {
-                        mPager.setCurrentItem(pageCount - 1, false);
-                    } else if (currentPage == pageCount - 1) {
-                        mPager.setCurrentItem(0, false);
-                    }
-                }
             }
         });
-
-
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    private void addBottomDots(int currentPage) {
+        if (isAdded()) {
+            if (slider_image_list.size() != 0) {
+                dots = new TextView[slider_image_list.size()];
+
+                ll_dots.removeAllViews();
+                for (int i = 0; i < dots.length; i++) {
+                    dots[i] = new TextView(getActivity());
+                    dots[i].setText(Html.fromHtml("&#8226;"));
+                    dots[i].setTextSize(35);
+                    dots[i].setTextColor(Color.parseColor("#BEBAB8"));
+                    ll_dots.addView(dots[i]);
+                }
+
+                if (dots.length > 0)
+                    dots[currentPage].setTextColor(Color.parseColor("#F24437"));
+            }
+        }
+    }
+
+
     private void onClick() {
 
         llOrderMedicines.setOnClickListener(this);
@@ -263,7 +288,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         llInsurance.setOnClickListener(this);
         llHealthCenter.setOnClickListener(this);
         llHealthBank.setOnClickListener(this);
-        llUploadPrescription.setOnClickListener(this);
+//        llUploadPrescription.setOnClickListener(this);
         llBookAppointment.setOnClickListener(this);
         tvViewAllProduct.setOnClickListener(this);
 
@@ -285,9 +310,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_upload_prescription:
-                fbc.setFragment(new UploadPrescription());
-                break;
+//            case R.id.ll_upload_prescription:
+//                fbc.setFragment(new UploadPrescription());
+//                break;
             case R.id.ll_order_medicines:
                 fbc.setFragment(new OrderMedicinesFragment());
                 break;

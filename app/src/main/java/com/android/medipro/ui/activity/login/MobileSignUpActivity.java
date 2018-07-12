@@ -52,7 +52,7 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
 
 
 
-        verifyOtp();
+
        // tvTimer();
         onClick();
 
@@ -71,52 +71,35 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String FirstOTP = etOTPFirst.getText().toString().trim();
-            String SecOTP = etOPTSecond.getText().toString().trim();
-            String ThirdtOTP = etOTPThird.getText().toString().trim();
-            String FourthOTP = etOPTFourth.getText().toString().trim();
-            String FifthOTP = etOTPFifth.getText().toString().trim();
-            String SixthOTP = etOTPSixth.getText().toString().trim();
 
 
-
-
-            if(FirstOTP.length()==1)
+            if(etOTPFirst.length()==1)
                 {
                     etOPTSecond.requestFocus();
                 }
-                if(SecOTP.length()==1)
+                if(etOPTSecond.length()==1)
                 {
                     etOTPThird.requestFocus();
                 }
-                if(ThirdtOTP.length()==1)
+                if(etOTPThird.length()==1)
                 {
                     etOPTFourth.requestFocus();
                 }
-                if(FourthOTP.length()==1)
+                if(etOPTFourth.length()==1)
                 {
                     etOTPFifth.requestFocus();
                 }
-             if(FifthOTP.length()==1)
+             if(etOTPFifth.length()==1)
                 {
                     etOTPSixth.requestFocus();
 
                 }
-                if (SixthOTP.length()==1&&!FirstOTP.equals("")&&!SecOTP.equals("")&&!ThirdtOTP.equals("")&&!FourthOTP.equals("")&&!FifthOTP.equals("")&&!SixthOTP.equals("")) {
+                if (etOTPSixth.length()==1&&!etOTPFirst.equals("")&&!etOPTSecond.equals("")&&!etOTPThird.equals("")&&!etOPTFourth.equals("")&&!etOTPFifth.equals("")&&!etOTPSixth.equals("")) {
                     btnContinue.setEnabled(true);
                     btnContinue.setBackgroundColor(getResources().getColor(R.color.button_color_main));
 
                 }
-            StringBuilder sb = new StringBuilder(6);
-            sb.append(FirstOTP);
-            sb.append(SecOTP);
-            sb.append(ThirdtOTP);
-            sb.append(FourthOTP);
-            sb.append(FifthOTP);
-            sb.append(SixthOTP);
 
-            otp = String.valueOf(sb);
-            Log.e("otp",otp);
         }
 
 
@@ -163,57 +146,71 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
 //                Intent i = new Intent(MobileSignUpActivity.this,MainActivity.class);
 //                startActivity(i);
             case R.id.btn_continue_signup:
-                Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
-                 startActivity(intent);
+
+//                String FirstOTP = etOTPFirst.getText().toString().trim();
+//                String SecOTP = etOPTSecond.getText().toString().trim();
+//                String ThirdtOTP = etOTPThird.getText().toString().trim();
+//                String FourthOTP = etOPTFourth.getText().toString().trim();
+//                String FifthOTP = etOTPFifth.getText().toString().trim();
+//                String SixthOTP = etOTPSixth.getText().toString().trim();
+//
+//                otp=FirstOTP+SecOTP+ThirdtOTP+FourthOTP+FifthOTP+SixthOTP;
+//                Log.e("otp",otp);
+//
+//                verifyOtp();
+              Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
+                startActivity(intent);
         }
     }
-
-    private void verifyOtp() {
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://13.232.102.36/api/v1/user/otp/verify";
-
-        StringRequest sr = new StringRequest(Request.Method.POST, url,
-
-                new com.android.volley.Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-
-                        Log.e("response", s);
-
-                        try {
-
-                            JSONObject object = new JSONObject(s);
-                            Boolean success = object.getBoolean("success");
-                            String message = object.getString("message");
-
-                            if (success) {
-                                Log.e("success", String.valueOf(success));
-                            }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Log.e("Messages Flag", "" + e.toString());
-                        }
-                    }
-                },
-                new com.android.volley.Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Log.e("error", "error: " + error.toString());
-                    }
-                }) {
-            @SuppressLint("LongLogTag")
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("phone", tvPhone.getText().toString());
-                params.put("otp", "otp");
-                return params;
-            }
-
-        };
-        queue.add(sr);
-
-    }
+// code for opt verification
+//    private void verifyOtp() {
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        String url = "http://13.232.102.36/api/v1/user/otp/verify";
+//
+//        StringRequest sr = new StringRequest(Request.Method.POST, url,
+//
+//                new com.android.volley.Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String s) {
+//
+//                        Log.e("response", s);
+//
+//                        try {
+//
+//                            JSONObject object = new JSONObject(s);
+//                            Boolean success = object.getBoolean("success");
+//                            String message = object.getString("message");
+//
+//                            if (success) {
+//                                Log.e("successMsg", String.valueOf(success));
+//                                Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
+//                                startActivity(intent);
+//                            }
+//
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            Log.e("Messages Flag", "" + e.toString());
+//                        }
+//                    }
+//                },
+//                new com.android.volley.Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                        Log.e("error", "error: " + error.toString());
+//                    }
+//                }) {
+//            @SuppressLint("LongLogTag")
+//            @Override
+//            protected Map<String, String> getParams() {
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("phone", tvPhone.getText().toString());
+//                params.put("otp",otp);
+//                return params;
+//            }
+//
+//        };
+//        queue.add(sr);
+//
+//    }
 }

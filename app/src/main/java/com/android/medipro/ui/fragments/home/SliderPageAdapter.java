@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.medipro.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class SliderPageAdapter extends PagerAdapter {
 
     private Context context;
     private ArrayList<String> imageModelArrayList;
-    private LayoutInflater inflater;
+    private LayoutInflater layoutInflater;
 
     public SliderPageAdapter(Context context, ArrayList<String> imageModelArrayList) {
         this.context = context;
@@ -25,42 +26,43 @@ public class SliderPageAdapter extends PagerAdapter {
     }
 
 
+
+
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
+    public Object instantiateItem(ViewGroup container, int position) {
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = layoutInflater.inflate(R.layout.slidingimages_layout, container, false);
+
+
+        ImageView im_slider = (ImageView) view.findViewById(R.id.im_slider);
+        Picasso.with(context.getApplicationContext())
+                .load(imageModelArrayList.get(position))
+//                .placeholder(R.mipmap.ic_launcher) // optional
+//                .error(R.mipmap.ic_launcher)         // optional
+                .into(im_slider);
+
+
+        container.addView(view);
+
+        return view;
     }
 
     @Override
     public int getCount() {
-
         return imageModelArrayList.size();
     }
 
+
     @Override
-    public Object instantiateItem(ViewGroup view, int position) {
-        View imageLayout = inflater.inflate(R.layout.slidingimages_layout, view, false);
-
-        assert imageLayout != null;
-        final ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
-    imageView.setImageBitmap(BitmapFactory.decodeFile(imageModelArrayList.get(position)));
-
-        view.addView(imageLayout, 0);
-
-        return imageLayout;
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view.equals(object);
-    }
 
     @Override
-    public void restoreState(Parcelable state, ClassLoader loader) {
-    }
-
-    @Override
-    public Parcelable saveState() {
-        return null;
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        View view = (View) object;
+        container.removeView(view);
     }
 }
 

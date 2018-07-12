@@ -88,7 +88,7 @@ private void onClick(){
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_continue_main:
-                generateOtp();
+               // generateOtp();
                 Intent i = new Intent(MainActivity.this,MobileSignUpActivity.class);
                 String phone = etPhoneNumber.getText().toString();
                 Log.e("phone","number"+phone);
@@ -101,53 +101,55 @@ private void onClick(){
         }
     }
 
-    private void generateOtp() {
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://13.232.102.36/api/v1/user/otp/generate";
 
-        StringRequest sr = new StringRequest(Request.Method.POST, url,
+    // code for OTP generation
+//    private void generateOtp() {
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        String url = "http://13.232.102.36/api/v1/user/otp/generate";
+//
+//        StringRequest sr = new StringRequest(Request.Method.POST, url,
+//
+//                new com.android.volley.Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String s) {
+//
+//                        Log.e("response", s);
+//
+//                        try {
+//
+//                            JSONObject object = new JSONObject(s);
+//                            Boolean success = object.getBoolean("success");
+//                            String message = object.getString("message");
+//
+//                            if (success) {
+//                                Log.e("success", String.valueOf(success));
+//                            }
+//
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            Log.e("Messages Frag", "" + e.toString());
+//                        }
+//                    }
+//                },
+//                new com.android.volley.Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                        Log.e("callApplyCoupon", "error: " + error.toString());
+//                    }
+//                }) {
+//            @SuppressLint("LongLogTag")
+//            @Override
+//            protected Map<String, String> getParams() {
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("phone", etPhoneNumber.getText().toString());
+//                return params;
+//            }
+//
+//        };
+//        queue.add(sr);
 
-                new com.android.volley.Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-
-                        Log.e("response", s);
-
-                        try {
-
-                            JSONObject object = new JSONObject(s);
-                            Boolean success = object.getBoolean("success");
-                            String message = object.getString("message");
-
-                            if (success) {
-                                Log.e("success", String.valueOf(success));
-                            }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Log.e("Messages Frag", "" + e.toString());
-                        }
-                    }
-                },
-                new com.android.volley.Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Log.e("callApplyCoupon", "error: " + error.toString());
-                    }
-                }) {
-            @SuppressLint("LongLogTag")
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("phone", etPhoneNumber.getText().toString());
-                return params;
-            }
-
-        };
-        queue.add(sr);
-
-    }
+  //  }
     }
 
 

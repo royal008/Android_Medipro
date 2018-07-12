@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical">
 
     <LinearLayout
@@ -10,91 +11,100 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/ll_upload_prescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_upload_prescription"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/white"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingBottom="15dp"-->
+            <!--android:paddingTop="15dp">-->
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@string/specify"
-                android:layout_marginLeft="@dimen/smaller_text"
-                android:layout_marginStart="@dimen/smaller_text"
-                android:src="@drawable/general_uploadprescription" />
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:contentDescription="@string/specify"-->
+                <!--android:layout_marginLeft="@dimen/smaller_text"-->
+                <!--android:layout_marginStart="@dimen/smaller_text"-->
+                <!--android:src="@drawable/general_uploadprescription" />-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/very_small_text"
-                android:layout_marginStart="@dimen/very_small_text"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginLeft="@dimen/very_small_text"-->
+                <!--android:layout_marginStart="@dimen/very_small_text"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:text="@string/order_with_pres"
-                    android:textColor="@color/red"
-                    android:textSize="@dimen/medium_text"
-                    android:textStyle="bold" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="start"-->
+                    <!--android:text="@string/order_with_pres"-->
+                    <!--android:textColor="@color/red"-->
+                    <!--android:textSize="@dimen/medium_text"-->
+                    <!--android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:text="@string/quick_buy"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/smaller_text"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="start"-->
+                    <!--android:text="@string/quick_buy"-->
+                    <!--android:textColor="@color/gray"-->
+                    <!--android:textSize="@dimen/smaller_text"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/very_small_text"
-                android:layout_marginEnd="@dimen/very_small_text"
-                android:background="@drawable/blue_curved_rectangle"
-                android:gravity="center"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/shopping_upload"
-                android:textColor="@color/white"
-                android:textSize="@dimen/small_text"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginRight="@dimen/very_small_text"-->
+                <!--android:layout_marginEnd="@dimen/very_small_text"-->
+                <!--android:background="@drawable/blue_curved_rectangle"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingBottom="10dp"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:text="@string/shopping_upload"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="@dimen/small_text"-->
+                <!--android:textStyle="bold" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_margin="@dimen/small_text"
             android:layout_height="200dp">
 
             <android.support.v4.view.ViewPager
-                android:id="@+id/pager"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentTop="true" />
+                android:id="@+id/vp_slider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-            <com.viewpagerindicator.CirclePageIndicator
-                android:id="@+id/indicator"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+            <!--<com.viewpagerindicator.CirclePageIndicator-->
+                <!--android:id="@+id/indicator"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:gravity="bottom"-->
+                <!--android:padding="10dip"-->
+                <!--app:centered="true"-->
+                <!--app:fillColor="#df0623"-->
+                <!--app:pageColor="#fff"-->
+                <!--app:snap="false" />-->
+
+            <LinearLayout
+                android:id="@+id/ll_dots"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="bottom"
-                android:padding="10dip"
-                app:centered="true"
-                app:fillColor="#df0623"
-                app:pageColor="#fff"
-                app:snap="false" />
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"></LinearLayout>
         </RelativeLayout>
 
 
@@ -584,6 +594,8 @@
                 android:textColor="@color/red"
                 android:textSize="@dimen/medium_text" />
         </LinearLayout>
+
+
 
         <com.android.medipro.custom_utils.ExpandableGridView
             android:id="@+id/gv_popular_products"
