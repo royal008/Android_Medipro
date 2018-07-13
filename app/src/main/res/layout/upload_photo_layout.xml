@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_text"
+        android:text="@string/add_photo"/>
+<LinearLayout
+    android:id="@+id/ll_photo_camera"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="@dimen/xlarge_text"
+        android:layout_height="@dimen/xlarge_text"
+        android:layout_marginLeft="@dimen/small_text"
+        android:layout_marginRight="@dimen/small_text"
+        android:src="@drawable/prescription_camera"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/take_photo"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_photo_gallery"
+        android:layout_marginTop="@dimen/small_text"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/small_text"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/xlarge_text"
+            android:layout_height="@dimen/xlarge_text"
+            android:layout_marginLeft="@dimen/small_text"
+            android:layout_marginRight="@dimen/small_text"
+            android:src="@drawable/prescription_gallery"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/upload_photo"/>
+</LinearLayout>
+</LinearLayout>
