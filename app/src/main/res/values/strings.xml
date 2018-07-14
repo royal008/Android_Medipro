@@ -161,5 +161,14 @@
     <string name="add_photo">Add your Profile Photo</string>
     <string name="take_photo">Take a photo</string>
     <string name="upload_photo">Upload from gallery</string>
-
+    <string name="your_name">What is your name?</string>
+    <string name="your_number">What is your number?</string>
+    <string name="your_email">What is your email id?</string>
+    <string name="your_gender">Which gender do you identify with?</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="others">OTHER</string>
+    <string name="marital">Are you married?</string>
+    <string name="single">SINGLE</string>
+    <string name="married">MARRIED</string>
 </resources>

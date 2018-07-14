@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textSize="@dimen/xlarge_text"
+        android:layout_margin="@dimen/medium_text"
+        android:text="@string/marital"/>
+
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_margin="@dimen/medium_text"
+           android:layout_height="wrap_content">
+           <Button
+               android:id="@+id/btn_single"
+               android:layout_width="wrap_content"
+               android:text="@string/single"
+               android:textColor="@color/red"
+               android:layout_height="wrap_content" />
+
+           <Button
+               android:id="@+id/btn_married"
+               android:layout_width="wrap_content"
+               android:text="@string/married"
+               android:textColor="@color/red"
+               android:layout_marginLeft="@dimen/xlarge_text"
+               android:layout_marginStart="@dimen/xlarge_text"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+
+
+
+</LinearLayout>
