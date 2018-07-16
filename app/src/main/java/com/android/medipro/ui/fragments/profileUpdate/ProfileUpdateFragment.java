@@ -2,7 +2,10 @@ package com.android.medipro.ui.fragments.profileUpdate;
 
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -21,15 +24,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.medipro.R;
 import com.android.medipro.ui.activity.main.MenuActivity;
-import com.android.medipro.ui.fragments.uploadPrescription.UploadedDocumentsAdapter;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -39,14 +48,18 @@ import static android.app.Activity.RESULT_OK;
 public class ProfileUpdateFragment extends Fragment implements View.OnClickListener {
     View view;
     ImageView ivBack,ivPhoto;
-    LinearLayout llCamera,llGallery,llName,llPhone,llEmail,llGender,llMaritalStatus;
+    LinearLayout llCamera,llGallery,llName,llPhone,llEmail,llGender,llMaritalStatus,llBloodGroup,llWeight,llDOB,llHeight;
     private static int Result_code = 1;
     private int Request_Read_Permission = 2;
     private static final int CAMERA_REQUEST = 1888;
     Bitmap image;
-    Dialog ProfilePhotoDialog,AddNameDialog,AddNumberDialog,AddEmailDialog,AddGenderDialog,AddMaritalStatus;
-    EditText etName,etNumber;
-    TextView tvName,tvUpdateName,tvPhone,tvEmail,tvGender,tvMaritalStatus;
+    Dialog ProfilePhotoDialog,AddNameDialog,AddNumberDialog,AddEmailDialog,AddGenderDialog, AddMaritalStatus,AddBloodGroup,AddWeightDialog,AddDOB,AddHeight;
+    EditText etName,etNumber,etWeight;
+    Spinner feetSpinner,inchesSpinner;
+    TextView tvName,tvUpdateName,tvPhone,tvEmail,tvGender,tvMaritalStatus,tvBloodGroup,tvWeight,tvDOB,tvHeight,tvRemovePhoto;
+    ArrayAdapter feetAdapter, inchesAdapter;
+    ArrayList<String> alfeet,alinches;
+
 
 
     public ProfileUpdateFragment() {
@@ -79,7 +92,17 @@ public class ProfileUpdateFragment extends Fragment implements View.OnClickListe
         tvGender=(TextView)view.findViewById(R.id.tv_gender);
         llMaritalStatus=(LinearLayout)view.findViewById(R.id.ll_marital_status);
         tvMaritalStatus=(TextView)view.findViewById(R.id.tv_marital_status);
+        llBloodGroup=(LinearLayout)view.findViewById(R.id.ll_blood_group);
+        tvBloodGroup=(TextView)view.findViewById(R.id.tv_blood_group);
+        llWeight=(LinearLayout)view.findViewById(R.id.ll_weight);
+        tvWeight=(TextView)view.findViewById(R.id.tv_weight);
+        llDOB=(LinearLayout)view.findViewById(R.id.ll_dob);
+        tvDOB=(TextView)view.findViewById(R.id.tv_dob);
+        llHeight=(LinearLayout)view.findViewById(R.id.ll_height);
+        tvHeight=(TextView)view.findViewById(R.id.tv_height);
+
     }
+
 
     private void onClick() {
         ivBack.setOnClickListener(this);
@@ -89,13 +112,18 @@ public class ProfileUpdateFragment extends Fragment implements View.OnClickListe
         llEmail.setOnClickListener(this);
         llGender.setOnClickListener(this);
         llMaritalStatus.setOnClickListener(this);
+        llBloodGroup.setOnClickListener(this);
+        llWeight.setOnClickListener(this);
+        llDOB.setOnClickListener(this);
+        llHeight.setOnClickListener(this);
+
 
 
     }
 private void uploadPhoto(){
     ProfilePhotoDialog=new Dialog(getActivity());
     ProfilePhotoDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    ProfilePhotoDialog.setContentView(R.layout.upload_photo_layout);
+    ProfilePhotoDialog.setContentView(R.layout.profile_photo_layout);
     WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
     lp.copyFrom(ProfilePhotoDialog.getWindow().getAttributes());
     lp.width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -104,6 +132,14 @@ private void uploadPhoto(){
 
     ProfilePhotoDialog.getWindow().setAttributes(lp);
     ProfilePhotoDialog.show();
+    tvRemovePhoto=(TextView)ProfilePhotoDialog.findViewById(R.id.tv_remove);
+    tvRemovePhoto.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+         ivPhoto.setImageResource(R.drawable.user_profile_pic);
+         ProfilePhotoDialog.dismiss();
+        }
+    });
     llCamera=(LinearLayout) ProfilePhotoDialog.findViewById(R.id.ll_photo_camera);
     llCamera.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -207,7 +243,7 @@ private void addName(){
             public void onClick(View v) {
                 etNumber = (EditText)AddNumberDialog.findViewById(R.id.et_number);
                 String number= etNumber.getText().toString();
-                tvPhone.setText(number);
+                tvPhone.setText("+91-"+number);
                 AddNumberDialog.dismiss();
             }
         });
@@ -312,6 +348,215 @@ private void addName(){
 
     }
 
+    private void addBloodGroup(){
+        AddBloodGroup=new Dialog(getActivity());
+        AddBloodGroup.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AddBloodGroup.setContentView(R.layout.profile_blood_group_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom( AddBloodGroup.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        AddBloodGroup.getWindow().setAttributes(lp);
+        AddBloodGroup.show();
+
+        Button btnA =(Button)AddBloodGroup.findViewById(R.id.btn_group_a);
+        btnA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("A+");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+        Button btnNegA =(Button)AddBloodGroup.findViewById(R.id.btn_group_A);
+        btnNegA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("A-");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+        Button btnB =(Button)AddBloodGroup.findViewById(R.id.btn_group_b);
+        btnB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("B+");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+
+        Button btnNegB =(Button)AddBloodGroup.findViewById(R.id.btn_group_negB);
+        btnNegB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("B-");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+
+        Button btnO =(Button)AddBloodGroup.findViewById(R.id.btn_group_o);
+        btnO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("O+");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+
+        Button btnNegO =(Button)AddBloodGroup.findViewById(R.id.btn_group_negO);
+        btnNegO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("O-");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+        Button btnAB =(Button)AddBloodGroup.findViewById(R.id.btn_group_ab);
+        btnAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("AB+");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+        Button btnNegAB =(Button)AddBloodGroup.findViewById(R.id.btn_group_negAB);
+        btnNegAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvBloodGroup.setText("AB-");
+                AddBloodGroup.dismiss();
+            }
+        });
+
+    }
+
+    private void addWeight(){
+        AddWeightDialog=new Dialog(getActivity());
+        AddWeightDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AddWeightDialog.setContentView(R.layout.profile_weight_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom( AddWeightDialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        AddWeightDialog.getWindow().setAttributes(lp);
+        AddWeightDialog.show();
+
+        Button btnWeight =(Button)AddWeightDialog.findViewById(R.id.btn_profile_weigh);
+        btnWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etWeight = (EditText)AddWeightDialog.findViewById(R.id.et_weigh);
+                String weight= etWeight.getText().toString();
+                tvWeight.setText(weight+"kg");
+                AddWeightDialog.dismiss();
+            }
+        });
+
+    }
+
+    private void addDOB() {
+        AddDOB = new Dialog(getActivity());
+        AddDOB.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AddDOB.setContentView(R.layout.profile_dob_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(AddDOB.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        AddDOB.getWindow().setAttributes(lp);
+        AddDOB.show();
+
+        Button btnDob = (Button) AddDOB.findViewById(R.id.btn_dob);
+        btnDob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogfragment = new DatePickerDialogClass();
+
+                dialogfragment.show(getActivity().getFragmentManager(), "Date Picker Dialog");
+                AddDOB.dismiss();
+
+            }
+        });
+
+    }
+
+    public static class DatePickerDialogClass extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState){
+            final Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datepickerdialog = new DatePickerDialog(getActivity(),
+                    AlertDialog.THEME_DEVICE_DEFAULT_DARK,this,year,month,day);
+            datepickerdialog.getDatePicker().setMaxDate(new Date().getTime());
+
+            return datepickerdialog;
+        }
+
+        public void onDateSet(DatePicker view, int year, int month, int day){
+
+            TextView textview = (TextView)getActivity().findViewById(R.id.tv_dob);
+
+            textview.setText(day + "/" + (month+1) + "/" + year);
+        }
+
+    }
+
+    private void addHeight(){
+        AddHeight=new Dialog(getActivity());
+        AddHeight.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AddHeight.setContentView(R.layout.profile_height_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom( AddHeight.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        AddHeight.getWindow().setAttributes(lp);
+        AddHeight.show();
+
+
+                feetSpinner = (Spinner)AddHeight.findViewById(R.id.sp_feet);
+                inchesSpinner= (Spinner)AddHeight.findViewById(R.id.sp_inches);
+                alfeet = new ArrayList<String>();
+                alinches = new ArrayList<String>();
+                feetAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, alfeet);
+                inchesAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, alinches);
+
+                for (int i = 0; i <= 9; i++) {
+                    alfeet.add(Integer.toString(i));
+                }
+                feetSpinner.setAdapter(feetAdapter);
+
+                for (int i = 0; i <= 11; i++) {
+                    alinches.add(Integer.toString(i));
+                }
+                inchesSpinner.setAdapter(inchesAdapter);
+
+        Button btnHeight=(Button)AddHeight.findViewById(R.id.btn_profile_height);
+        btnHeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String feet = feetSpinner.getSelectedItem().toString();
+                String inches = inchesSpinner.getSelectedItem().toString();
+                tvHeight.setText(feet+"\t"+"ft"+"\t"+inches+"\t"+"in");
+                AddHeight.dismiss();
+            }
+        });
+
+    }
+
+
 
     @Override
     public void onClick(View v) {
@@ -336,6 +581,18 @@ private void addName(){
                 break;
             case R.id.ll_marital_status:
                 addMaritalStatus();
+                break;
+            case R.id.ll_blood_group:
+                addBloodGroup();
+                break;
+            case R.id.ll_weight:
+                addWeight();
+                break;
+            case R.id.ll_dob:
+                addDOB();
+                break;
+            case R.id.ll_height:
+                addHeight();
                 break;
 
 

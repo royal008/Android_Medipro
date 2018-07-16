@@ -13,21 +13,23 @@
         android:textColor="@color/red"
         android:textSize="@dimen/xlarge_text"
       android:layout_margin="@dimen/medium_text"
-        android:text="@string/your_name"/>
+        android:text="@string/birth_date"/>
 
-    <EditText
-        android:id="@+id/et_name"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/xlarge_text"
-        android:layout_margin="@dimen/medium_text"
-         />
+        android:textColor="@color/black"
+        android:textSize="@dimen/medium_text"
+        android:layout_margin="@dimen/small_text"
+        android:text="@string/set_date"/>
+
+
     <Button
-        android:id="@+id/btn_profile_name"
+        android:id="@+id/btn_dob"
         android:layout_width="wrap_content"
-        android:text="@string/save_details"
+        android:text="@string/btn_set_date"
         android:textColor="@color/red"
-        android:layout_marginBottom="@dimen/medium_text"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/medium_text"/>
 
 </LinearLayout>

@@ -27,8 +27,9 @@
     <Button
         android:id="@+id/btn_profile_email"
         android:layout_width="wrap_content"
-        android:text="@string/add"
+        android:text="@string/save_details"
         android:textColor="@color/red"
+        android:layout_marginBottom="@dimen/medium_text"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

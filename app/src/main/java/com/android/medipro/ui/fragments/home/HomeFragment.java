@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,8 +67,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     Bundle bundle;
     private ViewPager vp_slider;
     private LinearLayout ll_dots;
-    private TextView[] dots;
+   // private TextView[] dots;
     int page_position = 0;
+    ViewPager viewPager;
+    LinearLayout sliderDotspanel;
+    private int dotscount;
+    private ImageView[] dots;
     SliderPageAdapter sliderPagerAdapter;
     ArrayList<String> slider_image_list;
 
@@ -83,7 +89,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-
+        // method for initialisation
+       init();
         MenuActivity.llTopBar.setVisibility(View.VISIBLE);
         MenuActivity.llTopBar.setBackgroundResource(R.color.red);
         MenuActivity.ivMenuLines.setImageResource(R.drawable.menu_lines);
@@ -94,20 +101,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         MenuActivity.ivSearch.setVisibility(View.VISIBLE);
         MenuActivity.ivCart.setVisibility(View.VISIBLE);
 
-       // llUploadPrescription = (LinearLayout) view.findViewById(R.id.ll_upload_prescription);
-        llBookAppointment = (LinearLayout) view.findViewById(R.id.ll_book_appointment);
-        llMenu = (LinearLayout) view.findViewById(R.id.ll_menu);
-        gvPopularProducts = (ExpandableGridView) view.findViewById(R.id.gv_popular_products);
-        tvViewAllProduct = (TextView) view.findViewById(R.id.tv_view_all_product);
-        llOrderMedicines = (LinearLayout) view.findViewById(R.id.ll_order_medicines);
-        llBookTest = (LinearLayout) view.findViewById(R.id.ll_book_test);
-        llShopping = (LinearLayout) view.findViewById(R.id.ll_shopping);
-        llAyush = (LinearLayout) view.findViewById(R.id.ll_ayush);
-        llInsurance = (LinearLayout) view.findViewById(R.id.ll_insurance);
-        llHealthCenter = (LinearLayout) view.findViewById(R.id.ll_health_center);
-        llHealthBank = (LinearLayout) view.findViewById(R.id.ll_health_bank);
-
-        adView = (AdView) view.findViewById(R.id.adView);
 
 
         MobileAds.initialize(getActivity(), getString(R.string.admob_app_id));
@@ -136,13 +129,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         gvPopularProducts.setExpanded(true);
 
 
-        // method for initialisation
-        init();
+
 
 // method for adding indicators
-        addBottomDots(0);
-
+        //addBottomDots(0);
+        initimage();
         final Handler handler = new Handler();
+
 
         final Runnable update = new Runnable() {
             public void run() {
@@ -151,23 +144,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 } else {
                     page_position = page_position + 1;
                 }
-                vp_slider.setCurrentItem(page_position, true);
+                viewPager.setCurrentItem(page_position, true);
             }
         };
 
-        new Timer().schedule(new TimerTask() {
+    new Timer().schedule(new TimerTask() {
 
-            @Override
-            public void run() {
-                handler.post(update);
-            }
-        }, 100, 5000);
+        @Override
+        public void run() {
+            handler.post(update);
+        }
+      }, 100, 5000);
 
         onClick();
         return view;
     }
+private void init(){
+    llBookAppointment = (LinearLayout) view.findViewById(R.id.ll_book_appointment);
+    llMenu = (LinearLayout) view.findViewById(R.id.ll_menu);
+    gvPopularProducts = (ExpandableGridView) view.findViewById(R.id.gv_popular_products);
+    tvViewAllProduct = (TextView) view.findViewById(R.id.tv_view_all_product);
+    llOrderMedicines = (LinearLayout) view.findViewById(R.id.ll_order_medicines);
+    llBookTest = (LinearLayout) view.findViewById(R.id.ll_book_test);
+    llShopping = (LinearLayout) view.findViewById(R.id.ll_shopping);
+    llAyush = (LinearLayout) view.findViewById(R.id.ll_ayush);
+    llInsurance = (LinearLayout) view.findViewById(R.id.ll_insurance);
+    llHealthCenter = (LinearLayout) view.findViewById(R.id.ll_health_center);
+    llHealthBank = (LinearLayout) view.findViewById(R.id.ll_health_bank);
 
-
+    adView = (AdView) view.findViewById(R.id.adView);
+}
 
     private void imagebanner(){
        mQueue = Volley.newRequestQueue(getActivity());
@@ -198,13 +204,57 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                slider_image_list.add(url);
                            }
                            Log.e("length", String.valueOf(slider_image_list.size()));
-
-                         sliderPagerAdapter.notifyDataSetChanged();
+                          // sliderPagerAdapter.notifyDataSetChanged();
                        } catch (Exception e) {
                            e.printStackTrace();
                            Log.e("Messages Frag", "" + e.toString());
                        }
+                       sliderPagerAdapter = new SliderPageAdapter(getActivity(), slider_image_list);
+                       viewPager.setAdapter(sliderPagerAdapter);
+                       dotscount=slider_image_list.size();
 
+
+
+                               dots = new ImageView[dotscount];
+
+                               for (int i = 0; i < dotscount; i++) {
+
+                                   dots[i] = new ImageView(getActivity());
+                                   dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.non_active_dot));
+
+                                   LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                                   params.setMargins(8, 0, 8, 0);
+
+                                   sliderDotspanel.addView(dots[i], params);
+
+                               }
+
+
+                               dots[0].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.active_dot));
+
+                       viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                           @Override
+                           public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                           }
+
+                           @Override
+                           public void onPageSelected(int position) {
+
+                               for(int i = 0; i< dotscount; i++){
+                                   dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.non_active_dot));
+                               }
+
+                               dots[position].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.active_dot));
+
+                           }
+
+                           @Override
+                           public void onPageScrollStateChanged(int state) {
+
+                           }
+                       });
 
                    }
                }, new com.android.volley.Response.ErrorListener() {
@@ -219,64 +269,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
    }
 
-    private void init() {
-
-
-        vp_slider = (ViewPager) view.findViewById(R.id.vp_slider);
-        ll_dots = (LinearLayout) view.findViewById(R.id.ll_dots);
-
-
-
-
-
-      imagebanner();
-
-
-        sliderPagerAdapter = new SliderPageAdapter(getActivity(), slider_image_list);
-        vp_slider.setAdapter(sliderPagerAdapter);
-
-        vp_slider.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                addBottomDots(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-    }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
+        viewPager.clearOnPageChangeListeners();
     }
 
-    private void addBottomDots(int currentPage) {
-        if (isAdded()) {
-            if (slider_image_list.size() != 0) {
-                dots = new TextView[slider_image_list.size()];
+    private void initimage() {
 
-                ll_dots.removeAllViews();
-                for (int i = 0; i < dots.length; i++) {
-                    dots[i] = new TextView(getActivity());
-                    dots[i].setText(Html.fromHtml("&#8226;"));
-                    dots[i].setTextSize(35);
-                    dots[i].setTextColor(Color.parseColor("#BEBAB8"));
-                    ll_dots.addView(dots[i]);
-                }
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        sliderDotspanel = (LinearLayout)view.findViewById(R.id.SliderDots);
 
-                if (dots.length > 0)
-                    dots[currentPage].setTextColor(Color.parseColor("#F24437"));
-            }
-        }
+        imagebanner();
+
+
+
     }
+
+
+
 
 
     private void onClick() {

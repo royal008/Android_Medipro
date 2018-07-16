@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class MobileSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvPhone;
-   // ImageView ivModeEdit;
+
     Button btnContinue;
     EditText etOTPFirst,etOPTSecond,etOTPThird,etOPTFourth,etOTPFifth,etOTPSixth;
      String otp;
@@ -53,13 +53,13 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
 
 
 
-       // tvTimer();
+
         onClick();
 
     }
 
     private void onClick() {
-        //ivModeEdit.setOnClickListener(this);
+
         btnContinue.setOnClickListener(this);
     }
 
@@ -110,24 +110,10 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
         }
 
     };
-//    private void tvTimer() {
-//        int x = 30000;
-//        new CountDownTimer(x, 1000) {
-//            public void onTick(long millisUntilFinished) {
-//                tvTimer.setText(+millisUntilFinished / 1000 + "sec");
-//            }
-//
-//            public void onFinish() {
-//                tvTimer.setText("done!");
-//            }
-//
-//        }.start();
-//    }
-
 
     private void getView() {
 
-       // tvTimer = (TextView) findViewById(R.id.tv_timer);
+
         tvPhone = (TextView) findViewById(R.id.tv_phone_number);
         etOTPFirst = (EditText)findViewById(R.id.et_opt_first_digit);
         etOPTSecond = (EditText)findViewById(R.id.et_opt_sec_digit);
@@ -135,16 +121,14 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
         etOPTFourth = (EditText)findViewById(R.id.et_opt_fourth_digit);
         etOTPFifth = (EditText)findViewById(R.id.et_opt_fifth_digit);
         etOTPSixth = (EditText)findViewById(R.id.et_opt_sixth_digit);
-       // ivModeEdit=(ImageView)findViewById(R.id.iv_mode_edit);
+
         btnContinue=(Button)findViewById(R.id.btn_continue_signup);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-//            case R.id.iv_mode_edit:
-//                Intent i = new Intent(MobileSignUpActivity.this,MainActivity.class);
-//                startActivity(i);
+
             case R.id.btn_continue_signup:
 
 //                String FirstOTP = etOTPFirst.getText().toString().trim();
@@ -160,6 +144,7 @@ public class MobileSignUpActivity extends AppCompatActivity implements View.OnCl
 //                verifyOtp();
               Intent intent = new Intent(MobileSignUpActivity.this,MenuActivity.class);
                 startActivity(intent);
+                finish();
         }
     }
 // code for opt verification

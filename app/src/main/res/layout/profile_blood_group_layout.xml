@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textSize="@dimen/xlarge_text"
+        android:layout_margin="@dimen/medium_text"
+        android:text="@string/blood_group_profile"/>
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_margin="@dimen/medium_text"
+           android:layout_height="wrap_content">
+           <Button
+               android:id="@+id/btn_group_a"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:text="@string/a"
+               android:textColor="@color/red"
+               android:layout_height="wrap_content" />
+           <Button
+               android:id="@+id/btn_group_A"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:text="@string/negA"
+               android:textColor="@color/red"
+               android:layout_height="wrap_content" />
+           <Button
+               android:id="@+id/btn_group_b"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:text="@string/b"
+               android:textColor="@color/red"
+               android:layout_height="wrap_content" />
+           <Button
+               android:id="@+id/btn_group_negB"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:text="@string/negB"
+               android:textColor="@color/red"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/mini_text"
+        android:layout_marginLeft="@dimen/medium_text"
+        android:layout_marginStart="@dimen/medium_text"
+        android:layout_marginRight="@dimen/medium_text"
+        android:layout_marginEnd="@dimen/medium_text"
+        android:layout_marginBottom="@dimen/medium_text"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_group_o"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/o"
+            android:textColor="@color/red"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_group_negO"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/negO"
+            android:textColor="@color/red"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_group_ab"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/ab"
+            android:textColor="@color/red"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_group_negAB"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/negAB"
+            android:textColor="@color/red"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>
